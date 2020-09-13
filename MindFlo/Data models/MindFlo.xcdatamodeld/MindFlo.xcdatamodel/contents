@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19G2021" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
+    <entity name="MoodJournalEntry" representedClassName=".MoodJournalEntry" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="journalDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="journalImage" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES"/>
+        <attribute name="journalText" optional="YES" attributeType="String"/>
+        <attribute name="moodColorHexCode" optional="YES" attributeType="String"/>
+        <attribute name="moodEmoji" optional="YES" attributeType="String"/>
+        <attribute name="moodTitle" optional="YES" attributeType="String"/>
+    </entity>
+    <elements>
+        <element name="MoodJournalEntry" positionX="-63" positionY="-18" width="128" height="148"/>
+    </elements>
+</model>

@@ -3,10 +3,26 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DA35E7E824E98F6000CEC323 /* MoodsVerticalGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA35E7E724E98F6000CEC323 /* MoodsVerticalGrid.swift */; };
+		DA3D864224F7EF7C003682C2 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA3D864124F7EF7C003682C2 /* CloudKit.framework */; };
+		DA55EC6424FAF8160055DFF5 /* PersonalJournalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA55EC6324FAF8160055DFF5 /* PersonalJournalView.swift */; };
+		DA55EC6624FAF9B50055DFF5 /* MoodJournalEntry+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA55EC6524FAF9B50055DFF5 /* MoodJournalEntry+extension.swift */; };
+		DA55EC6824FAFEE00055DFF5 /* JournalRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA55EC6724FAFEE00055DFF5 /* JournalRowView.swift */; };
+		DA55EC6C24FB8D370055DFF5 /* DateFormatterCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA55EC6B24FB8D370055DFF5 /* DateFormatterCustom.swift */; };
+		DA55EC7024FC1EE60055DFF5 /* JournalDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA55EC6F24FC1EE60055DFF5 /* JournalDetailView.swift */; };
+		DA9EB6D82505124F00DE363F /* MFListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9EB6D72505124F00DE363F /* MFListView.swift */; };
+		DA9EB6DA250521C800DE363F /* MFListToggleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9EB6D9250521C800DE363F /* MFListToggleView.swift */; };
+		DA9EB6DC25054CBF00DE363F /* testing.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9EB6DB25054CBF00DE363F /* testing.swift */; };
+		DA9EB6DE25067D5C00DE363F /* MFTimePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9EB6DD25067D5C00DE363F /* MFTimePicker.swift */; };
+		DA9EB6E02507942500DE363F /* SettingsAddNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9EB6DF2507942500DE363F /* SettingsAddNameView.swift */; };
+		DAAFF8F124DD85C1001C44C8 /* WeekDates.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAAFF8F024DD85C1001C44C8 /* WeekDates.swift */; };
+		DAAFF8F324DDA32C001C44C8 /* NavigateModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAAFF8F224DDA32C001C44C8 /* NavigateModifier.swift */; };
+		DAAFF8F524DDD6D3001C44C8 /* SheetHeightModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAAFF8F424DDD6D3001C44C8 /* SheetHeightModifier.swift */; };
+		DACBB27024E19806006E5D30 /* PickedMood.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACBB26F24E19806006E5D30 /* PickedMood.swift */; };
 		DACBBB4E24DC224900D541C4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACBBB4D24DC224900D541C4 /* AppDelegate.swift */; };
 		DACBBB5024DC224900D541C4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACBBB4F24DC224900D541C4 /* SceneDelegate.swift */; };
 		DACBBB5324DC224900D541C4 /* MindFlo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DACBBB5124DC224900D541C4 /* MindFlo.xcdatamodeld */; };
@@ -14,9 +30,50 @@
 		DACBBB5724DC224E00D541C4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DACBBB5624DC224E00D541C4 /* Assets.xcassets */; };
 		DACBBB5A24DC224E00D541C4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DACBBB5924DC224E00D541C4 /* Preview Assets.xcassets */; };
 		DACBBB5D24DC224E00D541C4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DACBBB5B24DC224E00D541C4 /* LaunchScreen.storyboard */; };
+		DACBBB6724DC331300D541C4 /* ChooseMoodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACBBB6624DC331300D541C4 /* ChooseMoodView.swift */; };
+		DACBBB6924DC34AB00D541C4 /* WriteMoodJournalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACBBB6824DC34AB00D541C4 /* WriteMoodJournalView.swift */; };
+		DACBBB6B24DC49CE00D541C4 /* RoundedButtonModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACBBB6A24DC49CE00D541C4 /* RoundedButtonModifier.swift */; };
+		DACBBB7624DC7D6500D541C4 /* ColorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACBBB7524DC7D6500D541C4 /* ColorManager.swift */; };
+		DACBBB7924DC81C400D541C4 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACBBB7824DC81C400D541C4 /* ImagePicker.swift */; };
+		DACBBB7B24DC81D800D541C4 /* CameraPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACBBB7A24DC81D800D541C4 /* CameraPicker.swift */; };
+		DACBBB7D24DC998800D541C4 /* AutoFocusTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACBBB7C24DC998800D541C4 /* AutoFocusTextField.swift */; };
+		DACC18F724DFF0D700EEB5A3 /* Mood.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACC18F624DFF0D700EEB5A3 /* Mood.swift */; };
+		DACC18FA24E01E3E00EEB5A3 /* MoodStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACC18F924E01E3E00EEB5A3 /* MoodStore.swift */; };
+		DACC18FC24E022E700EEB5A3 /* MoodsHorizontalScrollGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACC18FB24E022E700EEB5A3 /* MoodsHorizontalScrollGrid.swift */; };
+		DACC18FE24E04FFF00EEB5A3 /* CircularMoodButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACC18FD24E04FFF00EEB5A3 /* CircularMoodButton.swift */; };
+		DAD31D352508EAAE00502873 /* NotificationsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD31D342508EAAE00502873 /* NotificationsHelper.swift */; };
+		DAD31D3A25095DF200502873 /* SwiftUIVisualEffects in Frameworks */ = {isa = PBXBuildFile; productRef = DAD31D3925095DF200502873 /* SwiftUIVisualEffects */; };
+		DAD31D3C2509686A00502873 /* AuthenticationBlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD31D3B2509686A00502873 /* AuthenticationBlurView.swift */; };
+		DADE2048250388F300FA93A9 /* CircularPrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADE2047250388F300FA93A9 /* CircularPrimaryButton.swift */; };
+		DADE204A2503ADB800FA93A9 /* SettingsMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADE20492503ADB800FA93A9 /* SettingsMainView.swift */; };
+		DADE204D2503B40100FA93A9 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADE204C2503B40100FA93A9 /* UserSettings.swift */; };
+		DAEB058F250A4DEA00B96F8C /* EditMoodJournalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEB058E250A4DEA00B96F8C /* EditMoodJournalView.swift */; };
+		DAEB0591250A7DED00B96F8C /* PickedMoodEdit.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEB0590250A7DED00B96F8C /* PickedMoodEdit.swift */; };
+		DAEB0593250B96F100B96F8C /* ColorPickerGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEB0592250B96F100B96F8C /* ColorPickerGridView.swift */; };
+		DAEB0595250CA47800B96F8C /* QuoteStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEB0594250CA47800B96F8C /* QuoteStore.swift */; };
+		DAEB0597250CBD4600B96F8C /* IconToggleStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEB0596250CBD4600B96F8C /* IconToggleStyle.swift */; };
+		DAEB0599250CD24C00B96F8C /* QuoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEB0598250CD24C00B96F8C /* QuoteView.swift */; };
+		DAEBA76D24DD046B00E4DF76 /* AutoFocusTextInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEBA76C24DD046B00E4DF76 /* AutoFocusTextInputView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DA35E7E724E98F6000CEC323 /* MoodsVerticalGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodsVerticalGrid.swift; sourceTree = "<group>"; };
+		DA3D863F24F7EF73003682C2 /* MindFlo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MindFlo.entitlements; sourceTree = "<group>"; };
+		DA3D864124F7EF7C003682C2 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		DA55EC6324FAF8160055DFF5 /* PersonalJournalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalJournalView.swift; sourceTree = "<group>"; };
+		DA55EC6524FAF9B50055DFF5 /* MoodJournalEntry+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MoodJournalEntry+extension.swift"; sourceTree = "<group>"; };
+		DA55EC6724FAFEE00055DFF5 /* JournalRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalRowView.swift; sourceTree = "<group>"; };
+		DA55EC6B24FB8D370055DFF5 /* DateFormatterCustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterCustom.swift; sourceTree = "<group>"; };
+		DA55EC6F24FC1EE60055DFF5 /* JournalDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalDetailView.swift; sourceTree = "<group>"; };
+		DA9EB6D72505124F00DE363F /* MFListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MFListView.swift; sourceTree = "<group>"; };
+		DA9EB6D9250521C800DE363F /* MFListToggleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MFListToggleView.swift; sourceTree = "<group>"; };
+		DA9EB6DB25054CBF00DE363F /* testing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testing.swift; sourceTree = "<group>"; };
+		DA9EB6DD25067D5C00DE363F /* MFTimePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MFTimePicker.swift; sourceTree = "<group>"; };
+		DA9EB6DF2507942500DE363F /* SettingsAddNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsAddNameView.swift; sourceTree = "<group>"; };
+		DAAFF8F024DD85C1001C44C8 /* WeekDates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekDates.swift; sourceTree = "<group>"; };
+		DAAFF8F224DDA32C001C44C8 /* NavigateModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigateModifier.swift; sourceTree = "<group>"; };
+		DAAFF8F424DDD6D3001C44C8 /* SheetHeightModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetHeightModifier.swift; sourceTree = "<group>"; };
+		DACBB26F24E19806006E5D30 /* PickedMood.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickedMood.swift; sourceTree = "<group>"; };
 		DACBBB4A24DC224900D541C4 /* MindFlo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MindFlo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DACBBB4D24DC224900D541C4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DACBBB4F24DC224900D541C4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -26,6 +83,29 @@
 		DACBBB5924DC224E00D541C4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		DACBBB5C24DC224E00D541C4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DACBBB5E24DC224E00D541C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DACBBB6624DC331300D541C4 /* ChooseMoodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseMoodView.swift; sourceTree = "<group>"; };
+		DACBBB6824DC34AB00D541C4 /* WriteMoodJournalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteMoodJournalView.swift; sourceTree = "<group>"; };
+		DACBBB6A24DC49CE00D541C4 /* RoundedButtonModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButtonModifier.swift; sourceTree = "<group>"; };
+		DACBBB7524DC7D6500D541C4 /* ColorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorManager.swift; sourceTree = "<group>"; };
+		DACBBB7824DC81C400D541C4 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		DACBBB7A24DC81D800D541C4 /* CameraPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPicker.swift; sourceTree = "<group>"; };
+		DACBBB7C24DC998800D541C4 /* AutoFocusTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoFocusTextField.swift; sourceTree = "<group>"; };
+		DACC18F624DFF0D700EEB5A3 /* Mood.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mood.swift; sourceTree = "<group>"; };
+		DACC18F924E01E3E00EEB5A3 /* MoodStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodStore.swift; sourceTree = "<group>"; };
+		DACC18FB24E022E700EEB5A3 /* MoodsHorizontalScrollGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodsHorizontalScrollGrid.swift; sourceTree = "<group>"; };
+		DACC18FD24E04FFF00EEB5A3 /* CircularMoodButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularMoodButton.swift; sourceTree = "<group>"; };
+		DAD31D342508EAAE00502873 /* NotificationsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsHelper.swift; sourceTree = "<group>"; };
+		DAD31D3B2509686A00502873 /* AuthenticationBlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationBlurView.swift; sourceTree = "<group>"; };
+		DADE2047250388F300FA93A9 /* CircularPrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularPrimaryButton.swift; sourceTree = "<group>"; };
+		DADE20492503ADB800FA93A9 /* SettingsMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsMainView.swift; sourceTree = "<group>"; };
+		DADE204C2503B40100FA93A9 /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
+		DAEB058E250A4DEA00B96F8C /* EditMoodJournalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditMoodJournalView.swift; sourceTree = "<group>"; };
+		DAEB0590250A7DED00B96F8C /* PickedMoodEdit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickedMoodEdit.swift; sourceTree = "<group>"; };
+		DAEB0592250B96F100B96F8C /* ColorPickerGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerGridView.swift; sourceTree = "<group>"; };
+		DAEB0594250CA47800B96F8C /* QuoteStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteStore.swift; sourceTree = "<group>"; };
+		DAEB0596250CBD4600B96F8C /* IconToggleStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconToggleStyle.swift; sourceTree = "<group>"; };
+		DAEB0598250CD24C00B96F8C /* QuoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteView.swift; sourceTree = "<group>"; };
+		DAEBA76C24DD046B00E4DF76 /* AutoFocusTextInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoFocusTextInputView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,17 +113,63 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA3D864224F7EF7C003682C2 /* CloudKit.framework in Frameworks */,
+				DAD31D3A25095DF200502873 /* SwiftUIVisualEffects in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DA3D863E24F79915003682C2 /* Archive */ = {
+			isa = PBXGroup;
+			children = (
+				DACC18FB24E022E700EEB5A3 /* MoodsHorizontalScrollGrid.swift */,
+			);
+			path = Archive;
+			sourceTree = "<group>";
+		};
+		DA3D864024F7EF7C003682C2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DA3D864124F7EF7C003682C2 /* CloudKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DA55EC6D24FC1EA80055DFF5 /* Writing UI */ = {
+			isa = PBXGroup;
+			children = (
+				DACBBB6824DC34AB00D541C4 /* WriteMoodJournalView.swift */,
+				DAEB058E250A4DEA00B96F8C /* EditMoodJournalView.swift */,
+				DACBBB6624DC331300D541C4 /* ChooseMoodView.swift */,
+				DA35E7E724E98F6000CEC323 /* MoodsVerticalGrid.swift */,
+				DACC18FD24E04FFF00EEB5A3 /* CircularMoodButton.swift */,
+				DAEB0592250B96F100B96F8C /* ColorPickerGridView.swift */,
+			);
+			path = "Writing UI";
+			sourceTree = "<group>";
+		};
+		DA55EC6E24FC1EBE0055DFF5 /* Reading UI */ = {
+			isa = PBXGroup;
+			children = (
+				DACBBB5424DC224900D541C4 /* ContentView.swift */,
+				DA55EC6324FAF8160055DFF5 /* PersonalJournalView.swift */,
+				DA55EC6724FAFEE00055DFF5 /* JournalRowView.swift */,
+				DA55EC6F24FC1EE60055DFF5 /* JournalDetailView.swift */,
+				DADE2047250388F300FA93A9 /* CircularPrimaryButton.swift */,
+				DAD31D3B2509686A00502873 /* AuthenticationBlurView.swift */,
+				DAEB0598250CD24C00B96F8C /* QuoteView.swift */,
+			);
+			path = "Reading UI";
+			sourceTree = "<group>";
+		};
 		DACBBB4124DC224900D541C4 = {
 			isa = PBXGroup;
 			children = (
 				DACBBB4C24DC224900D541C4 /* MindFlo */,
 				DACBBB4B24DC224900D541C4 /* Products */,
+				DA3D864024F7EF7C003682C2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,13 +184,18 @@
 		DACBBB4C24DC224900D541C4 /* MindFlo */ = {
 			isa = PBXGroup;
 			children = (
+				DA3D863F24F7EF73003682C2 /* MindFlo.entitlements */,
 				DACBBB4D24DC224900D541C4 /* AppDelegate.swift */,
 				DACBBB4F24DC224900D541C4 /* SceneDelegate.swift */,
-				DACBBB5424DC224900D541C4 /* ContentView.swift */,
+				DA9EB6DB25054CBF00DE363F /* testing.swift */,
+				DA55EC6E24FC1EBE0055DFF5 /* Reading UI */,
+				DA55EC6D24FC1EA80055DFF5 /* Writing UI */,
+				DADE204B2503ADC800FA93A9 /* Settings UI */,
+				DACC18F824E01E1900EEB5A3 /* Data models */,
+				DACBBB7724DC81A500D541C4 /* Helpers */,
 				DACBBB5624DC224E00D541C4 /* Assets.xcassets */,
 				DACBBB5B24DC224E00D541C4 /* LaunchScreen.storyboard */,
 				DACBBB5E24DC224E00D541C4 /* Info.plist */,
-				DACBBB5124DC224900D541C4 /* MindFlo.xcdatamodeld */,
 				DACBBB5824DC224E00D541C4 /* Preview Content */,
 			);
 			path = MindFlo;
@@ -76,6 +207,61 @@
 				DACBBB5924DC224E00D541C4 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		DACBBB6C24DC4CAF00D541C4 /* Style Modifiers */ = {
+			isa = PBXGroup;
+			children = (
+				DACBBB7C24DC998800D541C4 /* AutoFocusTextField.swift */,
+				DAEBA76C24DD046B00E4DF76 /* AutoFocusTextInputView.swift */,
+				DACBBB6A24DC49CE00D541C4 /* RoundedButtonModifier.swift */,
+				DAEB0596250CBD4600B96F8C /* IconToggleStyle.swift */,
+				DA3D863E24F79915003682C2 /* Archive */,
+			);
+			path = "Style Modifiers";
+			sourceTree = "<group>";
+		};
+		DACBBB7724DC81A500D541C4 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				DACBBB6C24DC4CAF00D541C4 /* Style Modifiers */,
+				DACBBB7524DC7D6500D541C4 /* ColorManager.swift */,
+				DA55EC6B24FB8D370055DFF5 /* DateFormatterCustom.swift */,
+				DAAFF8F224DDA32C001C44C8 /* NavigateModifier.swift */,
+				DACBBB7824DC81C400D541C4 /* ImagePicker.swift */,
+				DAAFF8F024DD85C1001C44C8 /* WeekDates.swift */,
+				DACBBB7A24DC81D800D541C4 /* CameraPicker.swift */,
+				DAAFF8F424DDD6D3001C44C8 /* SheetHeightModifier.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		DACC18F824E01E1900EEB5A3 /* Data models */ = {
+			isa = PBXGroup;
+			children = (
+				DACBBB5124DC224900D541C4 /* MindFlo.xcdatamodeld */,
+				DADE204C2503B40100FA93A9 /* UserSettings.swift */,
+				DAD31D342508EAAE00502873 /* NotificationsHelper.swift */,
+				DACBB26F24E19806006E5D30 /* PickedMood.swift */,
+				DAEB0590250A7DED00B96F8C /* PickedMoodEdit.swift */,
+				DACC18F624DFF0D700EEB5A3 /* Mood.swift */,
+				DA55EC6524FAF9B50055DFF5 /* MoodJournalEntry+extension.swift */,
+				DACC18F924E01E3E00EEB5A3 /* MoodStore.swift */,
+				DAEB0594250CA47800B96F8C /* QuoteStore.swift */,
+			);
+			path = "Data models";
+			sourceTree = "<group>";
+		};
+		DADE204B2503ADC800FA93A9 /* Settings UI */ = {
+			isa = PBXGroup;
+			children = (
+				DADE20492503ADB800FA93A9 /* SettingsMainView.swift */,
+				DA9EB6DF2507942500DE363F /* SettingsAddNameView.swift */,
+				DA9EB6DD25067D5C00DE363F /* MFTimePicker.swift */,
+				DA9EB6D72505124F00DE363F /* MFListView.swift */,
+				DA9EB6D9250521C800DE363F /* MFListToggleView.swift */,
+			);
+			path = "Settings UI";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -94,6 +280,9 @@
 			dependencies = (
 			);
 			name = MindFlo;
+			packageProductDependencies = (
+				DAD31D3925095DF200502873 /* SwiftUIVisualEffects */,
+			);
 			productName = MindFlo;
 			productReference = DACBBB4A24DC224900D541C4 /* MindFlo.app */;
 			productType = "com.apple.product-type.application";
@@ -122,6 +311,9 @@
 				Base,
 			);
 			mainGroup = DACBBB4124DC224900D541C4;
+			packageReferences = (
+				DAD31D3825095DF200502873 /* XCRemoteSwiftPackageReference "swiftui-visual-effects" */,
+			);
 			productRefGroup = DACBBB4B24DC224900D541C4 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -149,10 +341,48 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DACBBB6724DC331300D541C4 /* ChooseMoodView.swift in Sources */,
 				DACBBB4E24DC224900D541C4 /* AppDelegate.swift in Sources */,
+				DACC18F724DFF0D700EEB5A3 /* Mood.swift in Sources */,
+				DA55EC7024FC1EE60055DFF5 /* JournalDetailView.swift in Sources */,
 				DACBBB5024DC224900D541C4 /* SceneDelegate.swift in Sources */,
+				DACC18FC24E022E700EEB5A3 /* MoodsHorizontalScrollGrid.swift in Sources */,
+				DAEB0593250B96F100B96F8C /* ColorPickerGridView.swift in Sources */,
+				DAD31D352508EAAE00502873 /* NotificationsHelper.swift in Sources */,
+				DA55EC6824FAFEE00055DFF5 /* JournalRowView.swift in Sources */,
+				DAD31D3C2509686A00502873 /* AuthenticationBlurView.swift in Sources */,
+				DAEB058F250A4DEA00B96F8C /* EditMoodJournalView.swift in Sources */,
+				DAEB0595250CA47800B96F8C /* QuoteStore.swift in Sources */,
+				DAEB0591250A7DED00B96F8C /* PickedMoodEdit.swift in Sources */,
+				DA9EB6D82505124F00DE363F /* MFListView.swift in Sources */,
+				DACBBB7924DC81C400D541C4 /* ImagePicker.swift in Sources */,
+				DADE204A2503ADB800FA93A9 /* SettingsMainView.swift in Sources */,
+				DACBB27024E19806006E5D30 /* PickedMood.swift in Sources */,
+				DACBBB6924DC34AB00D541C4 /* WriteMoodJournalView.swift in Sources */,
+				DAEB0597250CBD4600B96F8C /* IconToggleStyle.swift in Sources */,
 				DACBBB5524DC224900D541C4 /* ContentView.swift in Sources */,
+				DA55EC6C24FB8D370055DFF5 /* DateFormatterCustom.swift in Sources */,
+				DADE204D2503B40100FA93A9 /* UserSettings.swift in Sources */,
+				DA55EC6624FAF9B50055DFF5 /* MoodJournalEntry+extension.swift in Sources */,
 				DACBBB5324DC224900D541C4 /* MindFlo.xcdatamodeld in Sources */,
+				DAAFF8F524DDD6D3001C44C8 /* SheetHeightModifier.swift in Sources */,
+				DADE2048250388F300FA93A9 /* CircularPrimaryButton.swift in Sources */,
+				DACBBB6B24DC49CE00D541C4 /* RoundedButtonModifier.swift in Sources */,
+				DA9EB6DC25054CBF00DE363F /* testing.swift in Sources */,
+				DACC18FE24E04FFF00EEB5A3 /* CircularMoodButton.swift in Sources */,
+				DACC18FA24E01E3E00EEB5A3 /* MoodStore.swift in Sources */,
+				DAEBA76D24DD046B00E4DF76 /* AutoFocusTextInputView.swift in Sources */,
+				DA35E7E824E98F6000CEC323 /* MoodsVerticalGrid.swift in Sources */,
+				DAAFF8F324DDA32C001C44C8 /* NavigateModifier.swift in Sources */,
+				DA9EB6DE25067D5C00DE363F /* MFTimePicker.swift in Sources */,
+				DACBBB7B24DC81D800D541C4 /* CameraPicker.swift in Sources */,
+				DACBBB7624DC7D6500D541C4 /* ColorManager.swift in Sources */,
+				DAEB0599250CD24C00B96F8C /* QuoteView.swift in Sources */,
+				DA9EB6DA250521C800DE363F /* MFListToggleView.swift in Sources */,
+				DA9EB6E02507942500DE363F /* SettingsAddNameView.swift in Sources */,
+				DAAFF8F124DD85C1001C44C8 /* WeekDates.swift in Sources */,
+				DA55EC6424FAF8160055DFF5 /* PersonalJournalView.swift in Sources */,
+				DACBBB7D24DC998800D541C4 /* AutoFocusTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,11 +518,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = MindFlo/MindFlo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"MindFlo/Preview Content\"";
 				DEVELOPMENT_TEAM = LK47C325Q7;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = MindFlo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -308,11 +540,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = MindFlo/MindFlo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"MindFlo/Preview Content\"";
 				DEVELOPMENT_TEAM = LK47C325Q7;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = MindFlo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -346,6 +580,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		DAD31D3825095DF200502873 /* XCRemoteSwiftPackageReference "swiftui-visual-effects" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/lucasbrown/swiftui-visual-effects";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.3;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		DAD31D3925095DF200502873 /* SwiftUIVisualEffects */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DAD31D3825095DF200502873 /* XCRemoteSwiftPackageReference "swiftui-visual-effects" */;
+			productName = SwiftUIVisualEffects;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		DACBBB5124DC224900D541C4 /* MindFlo.xcdatamodeld */ = {
