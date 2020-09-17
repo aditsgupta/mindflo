@@ -10,30 +10,11 @@ import SwiftUI
 
 struct JournalRowView: View {
     var mindFloEntries: [MoodJournalEntry]
-    private var firstMindFloEntry: MoodJournalEntry{ return mindFloEntries.first! }
     
     @Binding var isNavigationBarHidden: Bool
     
     var body: some View {
-        Section(header:
-            
-            VStack(alignment: .leading, spacing: 0.0){
-                //Date component
-                Text("\(firstMindFloEntry.journalDate?.monthMedium ?? " ")")
-                    .font(.system(size: 12))
-                    .foregroundColor(.gray)
-                
-                Text("\(firstMindFloEntry.journalDate?.dayMedium ?? " ")")
-                    .font(.system(size: 24))
-                    .fontWeight(.semibold)
-                
-            }
-            .padding(.top, 4)
-            .frame(height: 36)
-            .listRowInsets(EdgeInsets(top: 32, leading: 16, bottom: -32, trailing: 8))
-
-            //end of section header
-        ){
+            //Add each moojJournal item in a date section
             ForEach(mindFloEntries) { (mfEntry: MoodJournalEntry) in
                 HStack(alignment: .top) {
                     Spacer()
@@ -96,7 +77,7 @@ struct JournalRowView: View {
                         )
                 }
             }
-        }
+
     }
 }
 

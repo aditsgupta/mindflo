@@ -13,6 +13,7 @@ struct testinng: View {
         ScrollView {
             LazyVStack{
                 Text("HI")
+                    .background(Color.red)
             }
         }
     }

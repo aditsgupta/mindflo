@@ -20,6 +20,8 @@
 		DA55EC7024FC1EE60055DFF5 /* JournalDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA55EC6F24FC1EE60055DFF5 /* JournalDetailView.swift */; };
 		DA569B2C2513806300CDF0E5 /* ListModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA569B2B2513806300CDF0E5 /* ListModifier.swift */; };
 		DA569B3425138CFD00CDF0E5 /* testinng.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA569B3325138CFD00CDF0E5 /* testinng.swift */; };
+		DA569B442513981F00CDF0E5 /* MindfloHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA569B432513981F00CDF0E5 /* MindfloHeaderView.swift */; };
+		DA569B4725139A8300CDF0E5 /* JournalHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA569B4625139A8300CDF0E5 /* JournalHomeView.swift */; };
 		DA9EB6D82505124F00DE363F /* MFListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9EB6D72505124F00DE363F /* MFListView.swift */; };
 		DA9EB6DA250521C800DE363F /* MFListToggleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9EB6D9250521C800DE363F /* MFListToggleView.swift */; };
 		DA9EB6DE25067D5C00DE363F /* MFTimePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9EB6DD25067D5C00DE363F /* MFTimePicker.swift */; };
@@ -79,6 +81,8 @@
 		DA55EC6F24FC1EE60055DFF5 /* JournalDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalDetailView.swift; sourceTree = "<group>"; };
 		DA569B2B2513806300CDF0E5 /* ListModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListModifier.swift; sourceTree = "<group>"; };
 		DA569B3325138CFD00CDF0E5 /* testinng.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testinng.swift; sourceTree = "<group>"; };
+		DA569B432513981F00CDF0E5 /* MindfloHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MindfloHeaderView.swift; sourceTree = "<group>"; };
+		DA569B4625139A8300CDF0E5 /* JournalHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalHomeView.swift; sourceTree = "<group>"; };
 		DA9EB6D72505124F00DE363F /* MFListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MFListView.swift; sourceTree = "<group>"; };
 		DA9EB6D9250521C800DE363F /* MFListToggleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MFListToggleView.swift; sourceTree = "<group>"; };
 		DA9EB6DD25067D5C00DE363F /* MFTimePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MFTimePicker.swift; sourceTree = "<group>"; };
@@ -179,12 +183,14 @@
 			isa = PBXGroup;
 			children = (
 				DACBBB5424DC224900D541C4 /* ContentView.swift */,
-				DAEBEEB8251248BD00F9CF55 /* ZeroJournalPosts.swift */,
 				DA55EC6324FAF8160055DFF5 /* PersonalJournalView.swift */,
+				DA569B4625139A8300CDF0E5 /* JournalHomeView.swift */,
 				DA55EC6724FAFEE00055DFF5 /* JournalRowView.swift */,
 				DA55EC6F24FC1EE60055DFF5 /* JournalDetailView.swift */,
 				DADE2047250388F300FA93A9 /* CircularPrimaryButton.swift */,
 				DAEB0598250CD24C00B96F8C /* QuoteView.swift */,
+				DA569B432513981F00CDF0E5 /* MindfloHeaderView.swift */,
+				DAEBEEB8251248BD00F9CF55 /* ZeroJournalPosts.swift */,
 				DAD31D3B2509686A00502873 /* AuthenticationBlurView.swift */,
 			);
 			path = "Reading UI";
@@ -432,8 +438,10 @@
 				DAEB058F250A4DEA00B96F8C /* EditMoodJournalView.swift in Sources */,
 				DAEB0595250CA47800B96F8C /* QuoteStore.swift in Sources */,
 				DAEB0591250A7DED00B96F8C /* PickedMoodEdit.swift in Sources */,
+				DA569B4725139A8300CDF0E5 /* JournalHomeView.swift in Sources */,
 				DA9EB6D82505124F00DE363F /* MFListView.swift in Sources */,
 				DACBBB7924DC81C400D541C4 /* ImagePicker.swift in Sources */,
+				DA569B442513981F00CDF0E5 /* MindfloHeaderView.swift in Sources */,
 				DADE204A2503ADB800FA93A9 /* SettingsMainView.swift in Sources */,
 				DACBB27024E19806006E5D30 /* PickedMood.swift in Sources */,
 				DA42325B250FF0E200ECA374 /* PrivacyPromiseView.swift in Sources */,

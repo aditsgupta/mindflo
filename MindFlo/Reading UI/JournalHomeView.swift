@@ -1,15 +1,15 @@
 //
-//  PersonalJournalView.swift
+//  JournalHomeView.swift
 //  MindFlo
 //
-//  Created by Adit Gupta on 30/08/20.
+//  Created by Adit Gupta on 17/09/20.
 //  Copyright © 2020 Adit Gupta. All rights reserved.
-// ONLY for iOS13
+//
 
 import SwiftUI
 import Firebase
 
-struct PersonalJournalView: View {
+struct JournalHomeView: View {
     @Environment(\.managedObjectContext) var managedObjectContext
     @FetchRequest(entity: MoodJournalEntry.entity(), sortDescriptors: [NSSortDescriptor(key: "journalDate", ascending: false)])
     var MoodJournalItems:FetchedResults<MoodJournalEntry>
@@ -36,65 +36,51 @@ struct PersonalJournalView: View {
     @State private var showSettingsView = false
     @State private var showPrivacySheet = false
     
-    init(userSettings: Binding<UserSettings>, isNavigationBarHidden: Binding<Bool>) {
-        //init the Binding
-        self._isNavigationBarHidden = isNavigationBarHidden
-        self._userSettings = userSettings
-        
-        UITableView.appearance().separatorStyle = .none // Remove separators
-        UITableView.appearance().tableFooterView = UIView() //Remove empty bottom list items
-        UITableView.appearance().backgroundColor = .clear //Remove BG colors
-        UITableViewCell.appearance().backgroundColor = .clear // cell background
-        UITableViewCell.appearance().selectionStyle = .none // Remove cell tap color
-        UITableViewHeaderFooterView.appearance().tintColor = UIColor.clear //Removes Section header color BG
-        UITableView.appearance().backgroundView?.backgroundColor = UIColor.clear
-    }
-    
     var body: some View {
+        
         NavigationView {
-            List{
+            ScrollView{
                 Section() {
                     MindfloHeaderView(userSettings: $userSettings, isNavigationBarHidden: $isNavigationBarHidden, showSettingsView: $showSettingsView)
+                        .padding(.horizontal)
                 }
                 
                 Section() {
                     QuoteView(mindfloDay: groupedByDate(MoodJournalItems).count)
                 }
-                
-                ForEach(groupedByDate(MoodJournalItems), id: \.self) { moodJournalEntriesGroup in
+                LazyVStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: 16, pinnedViews: [.sectionHeaders], content: {
                     
-                    Section(header:
-                        
-                        VStack(alignment: .leading, spacing: 0.0){
-                            //Date component
-                            Text("\(moodJournalEntriesGroup[0].journalDate!.monthMedium)")
-                                .font(.system(size: 12))
-                                .foregroundColor(.gray)
-                            
-                            Text("\(moodJournalEntriesGroup[0].journalDate!.dayMedium)")
-                                .font(.system(size: 24))
-                                .fontWeight(.semibold)
-                            
+                    ForEach(groupedByDate(MoodJournalItems), id: \.self) { moodJournalEntriesGroup in
+                        Section(header:
+                                    HStack {
+                                        VStack(alignment: .leading, spacing: 0.0){
+                                            //Date component
+                                            Text("\(moodJournalEntriesGroup[0].journalDate!.monthMedium)")
+                                                .font(.system(size: 12))
+                                                .foregroundColor(.gray)
+                                            
+                                            Text("\(moodJournalEntriesGroup[0].journalDate!.dayMedium)")
+                                                .font(.system(size: 24))
+                                                .fontWeight(.semibold)
+                                        }
+                                        .padding(.top, 4)
+                                        .frame(height: 1)
+                                        Spacer()
+                                    }
+                                    .offset(x: 16, y: 32)
+                                    .padding(.bottom, 16)
+                                    //.background(Color.red)
+                        ){
+                            JournalRowView(mindFloEntries: moodJournalEntriesGroup, isNavigationBarHidden: self.$isNavigationBarHidden)
+                                .padding(.horizontal)
                         }
-                        .padding(.top, 4)
-                        .frame(height: 36)
-                        .listRowInsets(EdgeInsets(top: 32, leading: 16, bottom: -32, trailing: 8))
-
-                        //end of section header
-                    ){
-                        
-                        JournalRowView(mindFloEntries: moodJournalEntriesGroup, isNavigationBarHidden: self.$isNavigationBarHidden)
                     }
-                }
-//                ForEach(groupedByDate(MoodJournalItems), id: \.self) { moodJournalEntriesGroup in
-//
-//                    JournalRowView(mindFloEntries: moodJournalEntriesGroup, isNavigationBarHidden: self.$isNavigationBarHidden)
-//                }
-                Section(){
-                    Spacer().frame(height: 72)
-                    //end of list spacing for readability
-                }
-                
+                    
+                    Section(){
+                        Spacer().frame(height: 72)
+                        //end of list spacing for readability
+                    }
+                })
             }
             .navigationBarTitle("")
             .navigationBarHidden(self.isNavigationBarHidden)
@@ -120,12 +106,13 @@ struct PersonalJournalView: View {
             self.showSettingsView = false
             self.showPrivacySheet = false
         }
+        
     }
 }
 
-struct PersonalJournalView_Previews: PreviewProvider {
+struct JournalHomeView_Previews: PreviewProvider {
     static var previews: some View {
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-        return PersonalJournalView(userSettings: .constant(UserSettings()), isNavigationBarHidden: .constant(true)).environment(\.managedObjectContext, context)
+        return JournalHomeView(userSettings: .constant(UserSettings()), isNavigationBarHidden: .constant(true)).environment(\.managedObjectContext, context)
     }
 }
