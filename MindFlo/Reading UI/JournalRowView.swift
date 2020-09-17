@@ -16,52 +16,49 @@ struct JournalRowView: View {
     var body: some View {
             //Add each moojJournal item in a date section
             ForEach(mindFloEntries) { (mfEntry: MoodJournalEntry) in
-                HStack(alignment: .top) {
-                    Spacer()
-                    .frame(width: 48)
-                   
-                    VStack(alignment: .leading, spacing: 0){
-                        HStack{
-                            //Mood
-                            Text("\(mfEntry.moodEmoji ?? "")")
-                                .font(.callout)
-                            
-                            Text("\(mfEntry.moodTitle ?? "")")
-                                .font(.system(size: 16, weight: .semibold))
-                                .foregroundColor(Color(.black).opacity(0.75))
-                            
-                            Spacer()
-                            
-                            Text("\(mfEntry.journalDate?.timeShort.lowercased() ?? "")")
-                                .font(.footnote)
-                                .foregroundColor(Color(.black).opacity(0.5))
-                            
-                        }
-                        .padding([.bottom], 8)
-                        
-                        HStack(alignment: .top) {
-                            //Journal text and image
-                            Text("\(mfEntry.journalText ?? "")")
-                                .fixedSize(horizontal: false, vertical: true)
-                                .font(.body)
-                                .foregroundColor(Color(.black))
-                                .multilineTextAlignment(.leading)
-                                .lineLimit(5)
-                            Spacer()
-                            
-                            mfEntry.journalImage.map { imagedata in
-                                
-                                Image(uiImage: UIImage(data: imagedata)!).resizable()
-                                    .renderingMode(.original)
-                                    .aspectRatio(UIImage(data: imagedata)!.size, contentMode: .fill)
-                                    .frame(width: 88, height: 88, alignment: .center)
-                                    .cornerRadius(12)
-                            }
-                        }
-                        
-                        NavigationLink(destination: JournalDetailView(mindFloEntry: mfEntry, isNavigationBarHidden: self.$isNavigationBarHidden)) {
-                            EmptyView()
-                        }
+				HStack(alignment: .top) {
+					Spacer()
+					.frame(width: 48)
+					NavigationLink(destination: JournalDetailView(mindFloEntry: mfEntry, isNavigationBarHidden: self.$isNavigationBarHidden)) {
+						VStack(alignment: .leading, spacing: 0){
+							HStack{
+								//Mood
+								Text("\(mfEntry.moodEmoji ?? "")")
+									.font(.callout)
+								
+								Text("\(mfEntry.moodTitle ?? "")")
+									.font(.system(size: 16, weight: .semibold))
+									.foregroundColor(Color(.black).opacity(0.75))
+								
+								Spacer()
+								
+								Text("\(mfEntry.journalDate?.timeShort.lowercased() ?? "")")
+									.font(.footnote)
+									.foregroundColor(Color(.black).opacity(0.5))
+								
+							}
+							.padding([.bottom], 8)
+							
+							HStack(alignment: .top) {
+								//Journal text and image
+								Text("\(mfEntry.journalText ?? "")")
+									.fixedSize(horizontal: false, vertical: true)
+									.font(.body)
+									.foregroundColor(Color(.black))
+									.multilineTextAlignment(.leading)
+									.lineLimit(5)
+								Spacer()
+								
+								mfEntry.journalImage.map { imagedata in
+									
+									Image(uiImage: UIImage(data: imagedata)!).resizable()
+										.renderingMode(.original)
+										.aspectRatio(UIImage(data: imagedata)!.size, contentMode: .fill)
+										.frame(width: 88, height: 88, alignment: .center)
+										.cornerRadius(12)
+								}
+							}
+						}
                     }
                     
                     .padding(.all)
@@ -71,10 +68,11 @@ struct JournalRowView: View {
                             .offset(x: -1, y: -2)
                             .shadow(color: Color.black.opacity(0.10), radius: 0, x: 1, y: 2)
                     )
-                        .background(
-                            RoundedRectangle(cornerRadius: 24)
-                                .foregroundColor(Color(hex: mfEntry.moodColorHexCode ?? "EEE"))
-                        )
+					.background(
+						RoundedRectangle(cornerRadius: 24)
+							.foregroundColor(Color(hex: mfEntry.moodColorHexCode ?? "EEE"))
+					)
+
                 }
             }
 
