@@ -1,0 +1,6 @@
+framework module Pods_MindFlo {
+  umbrella header "Pods-MindFlo-umbrella.h"
+
+  export *
+  module * { export * }
+}
