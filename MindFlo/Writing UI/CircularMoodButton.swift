@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct CircularMoodButton: View {
     @Binding var mood: Mood
@@ -18,6 +19,7 @@ struct CircularMoodButton: View {
                 self.pickedMood.pmColor = self.mood.moodColor
                 self.pickedMood.pmTitle = self.mood.moodTitles.first ?? ""
                 self.pickedMood.pmEmoji = self.mood.moodEmoji
+                self.pickedMood.pmType = self.mood.moodType
                 //Taptic feedback
                 UISelectionFeedbackGenerator().selectionChanged()
                 
@@ -40,14 +42,22 @@ struct CircularMoodButton: View {
                 }
             }
             .contextMenu{
+                //Forcetouch context menu
                 ForEach(mood.moodTitles, id: \.self){ title in
                     Button(action: {
                         // change text and color
                         self.pickedMood.pmColor = self.mood.moodColor
                         self.pickedMood.pmTitle = title
                         self.pickedMood.pmEmoji = self.mood.moodEmoji
+                        self.pickedMood.pmType = self.mood.moodType
                         self.pickedMood.pmJournalDate = Date()
                         self.pickedMood.writeJournalWithPickedMood.toggle()
+                        
+                        //Firebase
+                        Analytics.logEvent("writeMF_Library_ChooseMood", parameters: [
+                            "source" : "MoodLibrary_ForceTouch",
+                            "moodtype" : self.pickedMood.pmType as Int
+                        ])
                     }) {
                         Text("\(title)")
                         Image(systemName: "arrow.right.circle")

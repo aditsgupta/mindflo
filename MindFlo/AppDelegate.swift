@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 import UserNotifications
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
@@ -18,18 +19,50 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         UNUserNotificationCenter.current().delegate = self
+        
+        FirebaseApp.configure() //Analytics
         return true
     }
     //Actions from Notifications
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-        switch response.actionIdentifier {
-        case "write":
+        //Tap on notification
+        if response.notification.request.content.categoryIdentifier == "dailyCheckin" {
+            //Tap on notification
             NotificationCenter.default.post(name: NSNotification.Name("chooseMood"), object: nil)
-        case "writeWithMood":
-            NotificationCenter.default.post(name: NSNotification.Name("chooseMood"), object: nil)
-        default:
-            break
+            Analytics.logEvent("Checkin_writeMF", parameters: ["type" : response.notification.request.identifier, "source" : "Notif_tap"]) //Firebase
+            
+            //Forcetouch on notification actions
+            switch response.actionIdentifier {
+            case "write":
+                NotificationCenter.default.post(name: NSNotification.Name("chooseMood"), object: nil)
+                Analytics.logEvent("writeMF_Checkin", parameters: ["type" : response.notification.request.identifier, "source" : "Notif_forceTouch_actions"]) //Firebase
+            case "writeWithMood":
+                NotificationCenter.default.post(name: NSNotification.Name("chooseMood"), object: nil)
+                Analytics.logEvent("writeMF_Checkin", parameters: ["type" : response.notification.request.identifier, "source" : "Notif_forceTouch_actions"]) //Firebase
+            default:
+                break
+            }
         }
+        
+//        switch response.notification.request.identifier {
+//        case "morningCheckin":
+//            NotificationCenter.default.post(name: NSNotification.Name("chooseMood"), object: nil)
+//            Analytics.logEvent("writeMF_Checkin", parameters: ["type" : "Morning", "source" : "Notif_tap"]) //Firebase
+//
+//        case "eveningCheckin":
+//            NotificationCenter.default.post(name: NSNotification.Name("chooseMood"), object: nil)
+//            Analytics.logEvent("writeMF_Checkin", parameters: ["type" : "Evening", "source" : "Notif_tap"]) //Firebase
+//
+//        case "customCheckin":
+//            NotificationCenter.default.post(name: NSNotification.Name("chooseMood"), object: nil)
+//            Analytics.logEvent("writeMF_Checkin", parameters: ["type" : "Custom", "source" : "Notif_tap"]) //Firebase
+//
+//        default:
+//            break
+//        }
+        
+        // Always call the completion handler when done.
+        completionHandler()
     }
     
     // MARK: UISceneSession Lifecycle

@@ -8,6 +8,7 @@
 
 import Foundation
 import Combine
+import Firebase
 
 public class UserSettings: ObservableObject {
     
@@ -20,13 +21,16 @@ public class UserSettings: ObservableObject {
     @Published var faceID: Bool {
         didSet{
             UserDefaults.standard.set(faceID, forKey: "faceID")
-            if !faceID {
-                NotificationsHelper().authorizeUserNotification()
-            }
         }
     }
     
     //Checkin settings
+    
+    @Published var notificationsAllowed: Bool {
+        didSet{
+            UserDefaults.standard.set(notificationsAllowed, forKey: "notificationsAllowed") 
+        }
+    }
 
     @Published var morningCheckin: Bool {
         didSet{
@@ -36,9 +40,12 @@ public class UserSettings: ObservableObject {
             NotificationsHelper().removePendingNotifications(["morningCheckin"])
             
             if morningCheckin{
+                NotificationsHelper().authorizeUserNotification()
                 //add new ☀️ notification if true
                 NotificationsHelper().setupMorningNotifications(at: morningCheckinTime)
             }
+            //Update UserProperty in FireBase analytics
+            updateMFCheckinsUserProperty()
         }
     }
     @Published var morningCheckinTime: Date {
@@ -62,9 +69,12 @@ public class UserSettings: ObservableObject {
             NotificationsHelper().removePendingNotifications(["eveningCheckin"])
             
             if eveningCheckin{
+                NotificationsHelper().authorizeUserNotification()
                 //add new 🌙 notification if true
                 NotificationsHelper().setupEveningNotifications(at: eveningCheckinTime)
             }
+             //Update UserProperty in FireBase analytics
+            updateMFCheckinsUserProperty()
         }
     }
     
@@ -96,9 +106,12 @@ public class UserSettings: ObservableObject {
             NotificationsHelper().removePendingNotifications(["customCheckin"])
             
             if customCheckin{
+                NotificationsHelper().authorizeUserNotification()
                 //add new ⏱ notification if true
                 NotificationsHelper().setupCustomNotifications(at: customCheckinTime)
             }
+             //Update UserProperty in FireBase analytics
+            updateMFCheckinsUserProperty()
         }
     }
     
@@ -124,14 +137,17 @@ public class UserSettings: ObservableObject {
     }
     
     @Published var mfJournalPosts: Int {
-        //
+        //number of posts made by the user
         didSet{
             UserDefaults.standard.set(mfJournalPosts, forKey: "mfJournalPosts")
+            
+            //Send updated User property to Firebase
+            updateMFPostsUserProperty(posts: mfJournalPosts)
         }
     }
     
     @Published var mfJournalDays: Int {
-        //
+        //number of Journaling days
         didSet{
             UserDefaults.standard.set(mfJournalDays, forKey: "mfJournalDays")
         }
@@ -144,6 +160,8 @@ public class UserSettings: ObservableObject {
         self.faceID = UserDefaults.standard.object(forKey: "faceID") as? Bool ?? false
         
         //Checkin settings default
+        self.notificationsAllowed = UserDefaults.standard.object(forKey: "notificationsAllowed") as? Bool ?? false
+        
         let dateformatter = DateFormatter()
         dateformatter.dateFormat = "HH:mm, d MMM y"
         let morningTimeDefault = dateformatter.date(from: "08:00, 01 Jan 2020")
@@ -164,6 +182,34 @@ public class UserSettings: ObservableObject {
         self.mfdayZero = UserDefaults.standard.object(forKey: "mfdayZero") as? Date ?? Date()
         self.mfJournalPosts = UserDefaults.standard.object(forKey: "mfJournalPosts") as? Int ?? 0
         self.mfJournalDays = UserDefaults.standard.object(forKey: "mfJournalDays") as? Int ?? 0
+        
+    }
+    
+    func updateMFPostsUserProperty(posts: Int){
+        var propertyString = ""
+        
+        switch posts {
+        case 0..<3:
+            propertyString = "< 3 posts"
+        case 3..<10:
+            propertyString = "3-10 posts"
+        case 11..<20:
+            propertyString = "11-20 posts"
+        case 20..<50:
+            propertyString = "20-50 posts"
+        case 50..<100:
+            propertyString = "50-100 posts"
+        default:
+            propertyString = "> 100 posts"
+        }
+        //Set User properties Firebase
+        Analytics.setUserProperty(propertyString, forName: "MFPosts_Lifecycle")
+    }
+    
+    func updateMFCheckinsUserProperty(){
+        let propertyString = "\(morningCheckin ? "Morning" : "") \(eveningCheckin ? "Evening" : "") \(customCheckin ? "Custom": "") \(!morningCheckin && !eveningCheckin && !customCheckin ? "none" : "")"
+        //Set User properties Firebase
+        Analytics.setUserProperty(propertyString, forName: "MFCheckins_active")
         
     }
 }

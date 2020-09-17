@@ -14,8 +14,11 @@ class NotificationsHelper {
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
             if success {
                 print("All set!")
+                UserSettings().notificationsAllowed = true
+                
             } else if let error = error {
                 print(error.localizedDescription)
+                UserSettings().notificationsAllowed = false
             }
         }
     }

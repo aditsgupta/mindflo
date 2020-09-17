@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct JournalDetailView: View {
     @Environment(\.managedObjectContext) var managedObjectContext
@@ -154,6 +155,8 @@ struct JournalDetailView: View {
                                                 }catch{
                                                     print(error)
                                                 }
+                                                //Firebase
+                                                Analytics.logEvent("details_deleteAction", parameters: ["source" : "details"])
                                             }), .cancel()]
                                         )
                                     }
@@ -172,6 +175,7 @@ struct JournalDetailView: View {
                 .navigationBarHidden(false)
                 .onAppear(){
                     self.isNavigationBarHidden = false
+                    Analytics.logEvent("details_Visit", parameters: ["source" : "home"])
                 }
             } else {
                 EmptyView()
@@ -180,16 +184,18 @@ struct JournalDetailView: View {
         
     }
     func setupShareSheet(){
-        let text = "I felt \(mindFloEntry.moodEmoji ?? "") \(mindFloEntry.moodTitle ?? "") on \(dateFormatter.string(from: mindFloEntry.journalDate!)). Sent via @mindflo"
-        let url = URL(string: "https://aditsgupta.com")
+        let text = "I felt \(mindFloEntry.moodEmoji!) \(mindFloEntry.moodTitle!) on \(dateFormatter.string(from: mindFloEntry.journalDate!)). Sent via @Mindflo"
+        //let url = URL(string: "https://aditsgupta.com")
         var image = UIImage(named: "AppIcon")!
         if let imgData = mindFloEntry.journalImage{
             image = UIImage(data: imgData)!
         }
         
-        let av = UIActivityViewController(activityItems: [text, url!, image], applicationActivities: nil)
+        let av = UIActivityViewController(activityItems: [text, image], applicationActivities: nil)
         UIApplication.shared.windows.first?.rootViewController?.present(av, animated: true, completion: nil)
         
+        //Firebase
+        Analytics.logEvent("details_ShareAction", parameters: ["source" : "details"])
     }
     
     func setupEditDataFromEntry(){
@@ -199,6 +205,9 @@ struct JournalDetailView: View {
         pickedMoodEdit.journalText = mindFloEntry.journalText ?? ""
         pickedMoodEdit.journalDate = mindFloEntry.journalDate!
         pickedMoodEdit.journalImage = UIImage(data: mindFloEntry.journalImage ?? Data()) ?? UIImage()
+        
+        //Firebase
+        Analytics.logEvent("details_EditAction", parameters: ["source" : "details"])
     }
 }
 
@@ -212,7 +221,7 @@ struct JournalDetailView_Previews: PreviewProvider {
         sampleMoodJournalEntry.moodEmoji = "😡"
         sampleMoodJournalEntry.moodColorHexCode = ColorManager.pastelRed.uiColor() .hexString
         sampleMoodJournalEntry.journalDate = Date()
-        sampleMoodJournalEntry.journalImage = UIImage(named: "testFlower")!.jpegData(compressionQuality: 0.9)
+        sampleMoodJournalEntry.journalImage = UIImage(named: "testFlower")!.jpegData(compressionQuality: 0.5)
         
         return JournalDetailView(mindFloEntry: sampleMoodJournalEntry, isNavigationBarHidden: .constant(false))
     }

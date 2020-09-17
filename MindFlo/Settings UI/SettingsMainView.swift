@@ -46,18 +46,20 @@ struct SettingsMainView: View {
                     MFListView(title: (userSettings.name.isEmpty ? "Add your name" : userSettings.name), icon: "person.crop.circle")
                 }
                 
-                Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
-                    MFListToggleView(title: "FaceID lock", icon: "faceid", toggleState: $userSettings.faceID)
-                }
                 
                 Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
-                    MFListView(title: "Private iCloud sync", icon: "icloud.circle.fill")
+                    MFListToggleView(title: "App lock", icon: "faceid", toggleState: $userSettings.faceID)
+                }
+                
+                NavigationLink(destination: PrivacyPromiseView()) {
+                    MFListView(title: "Our privacy promise", icon: "lock.shield.fill", divider: false)
                 }
                 
             }
             .buttonStyle(PlainButtonStyle())
             .clipShape(RoundedRectangle(cornerRadius: 16))
             .shadow(color: Color.black.opacity(0.1), radius: 0, x: 2, y: 2)
+            .shadow(color: Color.black.opacity(0.1), radius: 0, x: -1, y: -1)
             .padding([.top,.leading,.trailing])
             
             VStack {
@@ -85,10 +87,12 @@ struct SettingsMainView: View {
                 }
                 Button(action: {
                     //Show ☀️ time picker sheet
-                    self.showTimepickerMorning.toggle()
+                    if !self.userSettings.morningCheckin{
+                        self.showTimepickerMorning.toggle()
+                    }
                     
                 }) {
-                    MFListToggleView(title: "\(userSettings.morningCheckinTime.timeShort.lowercased())", icon: "sun.min.fill", toggleState: $userSettings.morningCheckin)
+                    MFListToggleView(title: "Mornings at \(userSettings.morningCheckinTime.timeShort.lowercased())", icon: "sun.min.fill", toggleState: $userSettings.morningCheckin)
                 }
                 .sheet(height: SheetHeight.points(360), isPresented: $showTimepickerMorning) {
                     MFTimePicker(pickedTime: self.$userSettings.morningCheckinTime, showView: self.$showTimepickerMorning)
@@ -96,9 +100,12 @@ struct SettingsMainView: View {
                 
                 Button(action: {
                     //Show 🌙 time picker sheet
-                    self.showTimepickerEvening.toggle()
+                    if !self.userSettings.eveningCheckin{
+                        self.showTimepickerEvening.toggle()
+                    }
+                    
                 }) {
-                    MFListToggleView(title: "\(userSettings.eveningCheckinTime.timeShort.lowercased())", icon: "moon.fill", toggleState: $userSettings.eveningCheckin)
+                    MFListToggleView(title: "Evenings at \(userSettings.eveningCheckinTime.timeShort.lowercased())", icon: "moon.fill", toggleState: $userSettings.eveningCheckin)
                 }
                 .sheet(height: SheetHeight.points(360), isPresented: $showTimepickerEvening) {
                     MFTimePicker(pickedTime: self.$userSettings.eveningCheckinTime, showView: self.$showTimepickerEvening)
@@ -107,13 +114,14 @@ struct SettingsMainView: View {
                 Button(action: {
                     //Show ⏱custom time picker sheet
                     self.userSettings.customCheckinSetup = true
+                    
                     self.showTimepickerCustom.toggle()
                 }) {
                     if userSettings.customCheckinSetup {
-                        MFListToggleView(title: "\(userSettings.customCheckinTime.timeShort.lowercased())", icon: "clock.fill", toggleState: $userSettings.customCheckin)
+                        MFListToggleView(title: "Everyday at \(userSettings.customCheckinTime.timeShort.lowercased())", icon: "clock.fill", toggleState: $userSettings.customCheckin, divider: false)
                     }
                     else{
-                        MFListView(title: "Choose a time", icon: "plus.circle.fill")
+                        MFListView(title: "Choose a time", icon: "plus.circle.fill", divider: false)
                     }
                 }
                 .sheet(height: SheetHeight.points(400), isPresented: $showTimepickerCustom) {
@@ -137,7 +145,8 @@ struct SettingsMainView: View {
             }
             .buttonStyle(PlainButtonStyle())
             .clipShape(RoundedRectangle(cornerRadius: 16))
-            .shadow(color: Color.black.opacity(0.1), radius: 0, x: 2, y: 2)
+            .shadow(color: Color.black.opacity(0.1), radius: 0, x: 3, y: 3)
+            .shadow(color: Color.black.opacity(0.1), radius: 0, x: -1, y: 1)
             .padding([.top,.leading,.trailing])
             
             VStack {
@@ -175,15 +184,13 @@ struct SettingsMainView: View {
                 }
                 
                 Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
-                    MFListView(title: "Rate the app", icon: "star.circle.fill")
-                }
-                NavigationLink(destination: testing()) {
-                    Text("Testing")
+                    MFListView(title: "Rate the app", icon: "star.circle.fill", divider: false)
                 }
             }
             .buttonStyle(PlainButtonStyle())
             .clipShape(RoundedRectangle(cornerRadius: 16))
-            .shadow(color: Color.black.opacity(0.1), radius: 0, x: 2, y: 2)
+            .shadow(color: Color.black.opacity(0.1), radius: 0, x: 3, y: 3)
+            .shadow(color: Color.black.opacity(0.1), radius: 0, x: -1, y: 1)
             .padding([.top,.leading,.trailing])
             
         }

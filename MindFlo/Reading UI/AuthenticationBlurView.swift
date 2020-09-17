@@ -18,11 +18,11 @@ struct AuthenticationBlurView: View {
         ZStack {
             if userSettings.faceID && !authenticatedUser {
                 ZStack(alignment: .top){
-                    Color.black.opacity(0.1)
+                    Color.white.opacity(0.2)
                         .edgesIgnoringSafeArea(.all)
                     VStack {
                         Image(systemName: "lock.fill")
-                            .font(.system(size: 40))
+                            .font(.system(size: 32))
                             .foregroundColor(.gray)
                         Spacer()
                         Button(action: {
@@ -31,10 +31,9 @@ struct AuthenticationBlurView: View {
                             Text("Retry")
                         }
                         Spacer()
-                        Image("mindfloTypeLogo")
-                            .scaleEffect(0.9)
+                        Image("HomeLogoType")
                     }
-                    .padding(.vertical, 48)
+                    .padding(.vertical, 64)
                 }
                 .background(BlurEffect())
             } else {

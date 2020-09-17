@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "Profile_button.png",
+      "filename" : "HomePreferencesCTA.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "Profile_button@2x.png",
+      "filename" : "HomePreferencesCTA@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "Profile_button@3x.png",
+      "filename" : "HomePreferencesCTA@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

@@ -8,6 +8,7 @@
 
 import SwiftUI
 import Combine
+import Firebase
 import SwiftUIVisualEffects
 
 struct ChooseMoodView: View {
@@ -75,6 +76,12 @@ struct ChooseMoodView: View {
 
                                 self.pickedMood.pmJournalDate = Date()
                                 self.pickedMood.writeJournalWithPickedMood.toggle()
+                                
+                                //Firebase
+                                Analytics.logEvent("writeMF_Library_ChooseMood", parameters: [
+                                    "source" : "MoodLibrary_tap",
+                                    "moodtype" : self.pickedMood.pmType as Int
+                                ])
                             }
                             
                         }) {

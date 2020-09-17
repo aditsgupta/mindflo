@@ -16,20 +16,22 @@ struct JournalRowView: View {
     
     var body: some View {
         Section(header:
+            
             VStack(alignment: .leading, spacing: 0.0){
-            //Date component
+                //Date component
                 Text("\(firstMindFloEntry.journalDate?.monthMedium ?? " ")")
                     .font(.system(size: 12))
                     .foregroundColor(.gray)
-            
+                
                 Text("\(firstMindFloEntry.journalDate?.dayMedium ?? " ")")
                     .font(.system(size: 24))
                     .fontWeight(.semibold)
                 
             }
-            //.padding(.bottom, 32)
-            .frame(height: 32)
-            .listRowInsets(EdgeInsets(top: 24, leading: 16, bottom: -24, trailing: 8))
+            .padding(.top, 4)
+            .frame(height: 36)
+            .listRowInsets(EdgeInsets(top: 32, leading: 16, bottom: -32, trailing: 8))
+
             //end of section header
         ){
             ForEach(mindFloEntries) { (mfEntry: MoodJournalEntry) in
@@ -93,7 +95,6 @@ struct JournalRowView: View {
                                 .foregroundColor(Color(hex: mfEntry.moodColorHexCode ?? "EEE"))
                         )
                 }
-                
             }
         }
     }
@@ -109,7 +110,7 @@ struct JournalRowView_Previews: PreviewProvider {
         sampleMoodJournalEntry.moodEmoji = "😡"
         sampleMoodJournalEntry.moodColorHexCode = ColorManager.pastelRed.uiColor() .hexString
         sampleMoodJournalEntry.journalDate = Date()
-        sampleMoodJournalEntry.journalImage = UIImage(named: "testFlower")!.jpegData(compressionQuality: 0.9)
+        sampleMoodJournalEntry.journalImage = UIImage(named: "testFlower")!.jpegData(compressionQuality: 0.80)
         return JournalRowView(mindFloEntries: [sampleMoodJournalEntry, sampleMoodJournalEntry], isNavigationBarHidden: .constant(false))
     }
 }

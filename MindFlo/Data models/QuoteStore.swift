@@ -42,6 +42,9 @@ class QuoteStore {
         Quote(title: "Though we travel the world over to find the beautiful we must carry it with us, or we find it not.", author: "R.W. Emerson"),
         Quote(title: "Vulnerability sounds like truth and looks like courage.", author: "Brene Brown"),
         Quote(title: "Life does not owe you anything because life has already given you everything.", author: "Ralph Marston"),
+        //30
+        Quote(title: "Courage doesn’t happen when you have all the answers. It happens when you are ready to face the questions you have been avoiding your whole life.", author: "Shannon L. Alder"),
+        Quote(title: "The most important questions in life can never be answered by anyone except oneself.", author: "John Fowles, The Magus")
         
         
     ]

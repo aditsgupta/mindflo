@@ -28,7 +28,6 @@ struct ContentView: View {
             
             if !authenticatedUser && userSettings.faceID {
                 AuthenticationBlurView(authenticatedUser: $authenticatedUser, userSettings: $userSettings)
-                //usersetting.faceID does not work here
             }
         }
         .onReceive(chooseMoodPublisher) { (_) in

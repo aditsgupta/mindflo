@@ -16,15 +16,16 @@ struct QuoteView: View {
 
     var body: some View {
         ZStack(alignment: .topLeading) {
-            HStack(alignment: .top, spacing: 20) {
+            HStack(alignment: .top) {
                 Image("quoteIcon")
-                    .padding(.leading, 8)
-                    .padding(.top, 20)
+                    .padding(.top, 4)
+                    .padding(.leading, 12)
+                    .padding(.trailing, 16)
                 VStack(alignment: .leading) {
                     Text("\(quotes[quoteNum].title)")
-                        .font(.system(size: 16))
+                        .font(.system(size: 15))
                         .multilineTextAlignment(.leading)
-                        .foregroundColor(.gray)
+                        .foregroundColor(.black)
                     Text("- \(quotes[quoteNum].author) ")
                         .font(.system(size: 14))
                         .italic()
@@ -32,8 +33,9 @@ struct QuoteView: View {
                         .padding(.top, 8)
                         .foregroundColor(.gray)
                 }
-                .padding([.top, .leading])
+                .padding(.trailing, 8)
             }
+             .padding([.top], 24)
         }
     }
 }

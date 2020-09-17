@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "Mindflo_logo_type.png",
+      "filename" : "HomeLogoType.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "Mindflo_logo_type@2x.png",
+      "filename" : "HomeLogoType@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "Mindflo_logo_type@3x.png",
+      "filename" : "HomeLogoType@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

@@ -12,19 +12,14 @@ struct MFListToggleView: View {
     var title = ""
     var icon = ""
     @Binding var toggleState: Bool
+    var divider = true
     
     var body: some View {
         HStack(alignment: .center){
-            ZStack {
-                Circle()
-                    .frame(width: 32, height: 32)
-                    .foregroundColor(ColorManager.bgGrey)
                 Image(systemName: "\(icon)")
-                    .font(.system(size: 18, weight: .bold))
-                    .foregroundColor(Color.black.opacity(0.8))
-                
-            }
-            .padding()
+                    .font(.system(size: 20, weight: .bold))
+                    .foregroundColor(Color.black.opacity(toggleState ? 0.60 : 0.30))
+                    .padding()
             
             VStack {
                 Spacer()
@@ -36,13 +31,15 @@ struct MFListToggleView: View {
                 .padding(.trailing)
                 
                 Spacer()
-                
-                Rectangle()
-                    .frame(height: 1)
-                    .foregroundColor(ColorManager.buttonGrey)
-                    .padding(.top, 0)
+                //Divider
+                if divider {
+                    Rectangle()
+                        .frame(height: 2)
+                        .foregroundColor(Color.black.opacity(0.10))
+                } else {
+                    EmptyView()
+                }
             }
-            
             
         }
         .frame(height: 64)

@@ -8,6 +8,7 @@
 
 import SwiftUI
 import Combine
+import Firebase
 
 struct WriteMoodJournalView: View {
     @Environment(\.managedObjectContext) var managedObjectContext
@@ -139,6 +140,7 @@ struct WriteMoodJournalView: View {
                             //Sucess
                             UINotificationFeedbackGenerator().notificationOccurred(.success)
                             self.saveMoodJournal()
+                            
                         }
                         else{
                             //Do nothing
@@ -325,14 +327,14 @@ struct WriteMoodJournalView: View {
     
     func insertHintText() -> AnyView{
         switch self.pickedMood.pmJournalTextCount {
-        case 0..<15:
-            return AnyView(Text("What triggered this feeling?"))
-        case 16..<30:
-            return AnyView(Text("Write why you felt this way"))
-        case 31...:
-            return AnyView(Text("Add more context with a photo"))
+        case 0...20:
+            return AnyView(Text("I felt this way because…"))
+        case 21...50:
+            return AnyView(Text("What triggered these thoughts?"))
+        case 51...80:
+            return AnyView(Text("This is a safe space. Write freely."))
         default:
-            return AnyView(Text(" "))
+            return AnyView(Text("I felt this way because…"))
         }
     }
     
@@ -351,7 +353,7 @@ struct WriteMoodJournalView: View {
         moodJournalEntry.moodColorHexCode = pickedMood.pmColor.uiColor().hexString
         
         if(pickedMood.pmJournalImage != UIImage()){
-            moodJournalEntry.journalImage = pickedMood.pmJournalImage.jpegData(compressionQuality: 0.9)
+            moodJournalEntry.journalImage = pickedMood.pmJournalImage.jpegData(compressionQuality: 0.80)
         }
         else{
             moodJournalEntry.journalImage = nil
@@ -368,6 +370,14 @@ struct WriteMoodJournalView: View {
         if recheckinActive {
             addRecheckinNotification(inHours: pickedMood.recheckInHours)
         }
+        
+        //Firebase
+        Analytics.logEvent("writeMF_SaveButton", parameters: [
+            "MFJ_chars" : pickedMood.pmJournalTextCount as Int,
+            "MFJ_type" : pickedMood.pmType as Int,
+            "MFJ_imageAdded" : !pickedMood.pmJournalImage.isEqual(UIImage()) as Bool,
+            "MFJ_recheckinHours" : pickedMood.recheckInHours
+        ])
         
         //Reset
         pickedMood.resetPickedMood()

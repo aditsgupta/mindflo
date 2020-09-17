@@ -24,7 +24,7 @@ class PickedMood: ObservableObject {
     @Published var pmJournalTextCount = 0
     var pmJournalImage = UIImage()
     var pmJournalDate = Date()
-    
+    var pmType = 0 
     
     @Published var writeJournalWithPickedMood = false
     @Published var recheckInHours: Int = 0
