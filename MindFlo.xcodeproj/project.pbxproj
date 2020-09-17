@@ -7,16 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C6ED150AF51C81FB8B39E141 /* Pods_MindFlo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9BC9AAA5FE6133A206735A9 /* Pods_MindFlo.framework */; };
 		DA35E7E824E98F6000CEC323 /* MoodsVerticalGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA35E7E724E98F6000CEC323 /* MoodsVerticalGrid.swift */; };
 		DA3D864224F7EF7C003682C2 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA3D864124F7EF7C003682C2 /* CloudKit.framework */; };
+		DA42325B250FF0E200ECA374 /* PrivacyPromiseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA42325A250FF0E200ECA374 /* PrivacyPromiseView.swift */; };
+		DA42325D250FF39900ECA374 /* PrivacyPromiseStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA42325C250FF39900ECA374 /* PrivacyPromiseStore.swift */; };
+		DA42325F2510F88400ECA374 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA42325E2510F88300ECA374 /* GoogleService-Info.plist */; };
 		DA55EC6424FAF8160055DFF5 /* PersonalJournalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA55EC6324FAF8160055DFF5 /* PersonalJournalView.swift */; };
 		DA55EC6624FAF9B50055DFF5 /* MoodJournalEntry+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA55EC6524FAF9B50055DFF5 /* MoodJournalEntry+extension.swift */; };
 		DA55EC6824FAFEE00055DFF5 /* JournalRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA55EC6724FAFEE00055DFF5 /* JournalRowView.swift */; };
 		DA55EC6C24FB8D370055DFF5 /* DateFormatterCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA55EC6B24FB8D370055DFF5 /* DateFormatterCustom.swift */; };
 		DA55EC7024FC1EE60055DFF5 /* JournalDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA55EC6F24FC1EE60055DFF5 /* JournalDetailView.swift */; };
+		DA569B2C2513806300CDF0E5 /* ListModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA569B2B2513806300CDF0E5 /* ListModifier.swift */; };
+		DA569B3425138CFD00CDF0E5 /* testinng.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA569B3325138CFD00CDF0E5 /* testinng.swift */; };
 		DA9EB6D82505124F00DE363F /* MFListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9EB6D72505124F00DE363F /* MFListView.swift */; };
 		DA9EB6DA250521C800DE363F /* MFListToggleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9EB6D9250521C800DE363F /* MFListToggleView.swift */; };
-		DA9EB6DC25054CBF00DE363F /* testing.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9EB6DB25054CBF00DE363F /* testing.swift */; };
 		DA9EB6DE25067D5C00DE363F /* MFTimePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9EB6DD25067D5C00DE363F /* MFTimePicker.swift */; };
 		DA9EB6E02507942500DE363F /* SettingsAddNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9EB6DF2507942500DE363F /* SettingsAddNameView.swift */; };
 		DAAFF8F124DD85C1001C44C8 /* WeekDates.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAAFF8F024DD85C1001C44C8 /* WeekDates.swift */; };
@@ -54,20 +59,28 @@
 		DAEB0597250CBD4600B96F8C /* IconToggleStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEB0596250CBD4600B96F8C /* IconToggleStyle.swift */; };
 		DAEB0599250CD24C00B96F8C /* QuoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEB0598250CD24C00B96F8C /* QuoteView.swift */; };
 		DAEBA76D24DD046B00E4DF76 /* AutoFocusTextInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEBA76C24DD046B00E4DF76 /* AutoFocusTextInputView.swift */; };
+		DAEBEEB9251248BD00F9CF55 /* ZeroJournalPosts.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEBEEB8251248BD00F9CF55 /* ZeroJournalPosts.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		231F11268AA7445ED7C08BD7 /* Pods-MindFlo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MindFlo.release.xcconfig"; path = "Target Support Files/Pods-MindFlo/Pods-MindFlo.release.xcconfig"; sourceTree = "<group>"; };
+		C1CC4E98D2DC7BBE9F37BFCF /* Pods-MindFlo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MindFlo.debug.xcconfig"; path = "Target Support Files/Pods-MindFlo/Pods-MindFlo.debug.xcconfig"; sourceTree = "<group>"; };
+		C9BC9AAA5FE6133A206735A9 /* Pods_MindFlo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MindFlo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA35E7E724E98F6000CEC323 /* MoodsVerticalGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodsVerticalGrid.swift; sourceTree = "<group>"; };
 		DA3D863F24F7EF73003682C2 /* MindFlo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MindFlo.entitlements; sourceTree = "<group>"; };
 		DA3D864124F7EF7C003682C2 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		DA42325A250FF0E200ECA374 /* PrivacyPromiseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPromiseView.swift; sourceTree = "<group>"; };
+		DA42325C250FF39900ECA374 /* PrivacyPromiseStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPromiseStore.swift; sourceTree = "<group>"; };
+		DA42325E2510F88300ECA374 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DA55EC6324FAF8160055DFF5 /* PersonalJournalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalJournalView.swift; sourceTree = "<group>"; };
 		DA55EC6524FAF9B50055DFF5 /* MoodJournalEntry+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MoodJournalEntry+extension.swift"; sourceTree = "<group>"; };
 		DA55EC6724FAFEE00055DFF5 /* JournalRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalRowView.swift; sourceTree = "<group>"; };
 		DA55EC6B24FB8D370055DFF5 /* DateFormatterCustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterCustom.swift; sourceTree = "<group>"; };
 		DA55EC6F24FC1EE60055DFF5 /* JournalDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalDetailView.swift; sourceTree = "<group>"; };
+		DA569B2B2513806300CDF0E5 /* ListModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListModifier.swift; sourceTree = "<group>"; };
+		DA569B3325138CFD00CDF0E5 /* testinng.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testinng.swift; sourceTree = "<group>"; };
 		DA9EB6D72505124F00DE363F /* MFListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MFListView.swift; sourceTree = "<group>"; };
 		DA9EB6D9250521C800DE363F /* MFListToggleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MFListToggleView.swift; sourceTree = "<group>"; };
-		DA9EB6DB25054CBF00DE363F /* testing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testing.swift; sourceTree = "<group>"; };
 		DA9EB6DD25067D5C00DE363F /* MFTimePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MFTimePicker.swift; sourceTree = "<group>"; };
 		DA9EB6DF2507942500DE363F /* SettingsAddNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsAddNameView.swift; sourceTree = "<group>"; };
 		DAAFF8F024DD85C1001C44C8 /* WeekDates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekDates.swift; sourceTree = "<group>"; };
@@ -106,6 +119,7 @@
 		DAEB0596250CBD4600B96F8C /* IconToggleStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconToggleStyle.swift; sourceTree = "<group>"; };
 		DAEB0598250CD24C00B96F8C /* QuoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteView.swift; sourceTree = "<group>"; };
 		DAEBA76C24DD046B00E4DF76 /* AutoFocusTextInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoFocusTextInputView.swift; sourceTree = "<group>"; };
+		DAEBEEB8251248BD00F9CF55 /* ZeroJournalPosts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZeroJournalPosts.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,12 +129,22 @@
 			files = (
 				DA3D864224F7EF7C003682C2 /* CloudKit.framework in Frameworks */,
 				DAD31D3A25095DF200502873 /* SwiftUIVisualEffects in Frameworks */,
+				C6ED150AF51C81FB8B39E141 /* Pods_MindFlo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CA5643E72FC34350919F2802 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C1CC4E98D2DC7BBE9F37BFCF /* Pods-MindFlo.debug.xcconfig */,
+				231F11268AA7445ED7C08BD7 /* Pods-MindFlo.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		DA3D863E24F79915003682C2 /* Archive */ = {
 			isa = PBXGroup;
 			children = (
@@ -133,6 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				DA3D864124F7EF7C003682C2 /* CloudKit.framework */,
+				C9BC9AAA5FE6133A206735A9 /* Pods_MindFlo.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -154,12 +179,13 @@
 			isa = PBXGroup;
 			children = (
 				DACBBB5424DC224900D541C4 /* ContentView.swift */,
+				DAEBEEB8251248BD00F9CF55 /* ZeroJournalPosts.swift */,
 				DA55EC6324FAF8160055DFF5 /* PersonalJournalView.swift */,
 				DA55EC6724FAFEE00055DFF5 /* JournalRowView.swift */,
 				DA55EC6F24FC1EE60055DFF5 /* JournalDetailView.swift */,
 				DADE2047250388F300FA93A9 /* CircularPrimaryButton.swift */,
-				DAD31D3B2509686A00502873 /* AuthenticationBlurView.swift */,
 				DAEB0598250CD24C00B96F8C /* QuoteView.swift */,
+				DAD31D3B2509686A00502873 /* AuthenticationBlurView.swift */,
 			);
 			path = "Reading UI";
 			sourceTree = "<group>";
@@ -170,6 +196,7 @@
 				DACBBB4C24DC224900D541C4 /* MindFlo */,
 				DACBBB4B24DC224900D541C4 /* Products */,
 				DA3D864024F7EF7C003682C2 /* Frameworks */,
+				CA5643E72FC34350919F2802 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -187,7 +214,7 @@
 				DA3D863F24F7EF73003682C2 /* MindFlo.entitlements */,
 				DACBBB4D24DC224900D541C4 /* AppDelegate.swift */,
 				DACBBB4F24DC224900D541C4 /* SceneDelegate.swift */,
-				DA9EB6DB25054CBF00DE363F /* testing.swift */,
+				DA569B3325138CFD00CDF0E5 /* testinng.swift */,
 				DA55EC6E24FC1EBE0055DFF5 /* Reading UI */,
 				DA55EC6D24FC1EA80055DFF5 /* Writing UI */,
 				DADE204B2503ADC800FA93A9 /* Settings UI */,
@@ -196,6 +223,7 @@
 				DACBBB5624DC224E00D541C4 /* Assets.xcassets */,
 				DACBBB5B24DC224E00D541C4 /* LaunchScreen.storyboard */,
 				DACBBB5E24DC224E00D541C4 /* Info.plist */,
+				DA42325E2510F88300ECA374 /* GoogleService-Info.plist */,
 				DACBBB5824DC224E00D541C4 /* Preview Content */,
 			);
 			path = MindFlo;
@@ -226,6 +254,7 @@
 			children = (
 				DACBBB6C24DC4CAF00D541C4 /* Style Modifiers */,
 				DACBBB7524DC7D6500D541C4 /* ColorManager.swift */,
+				DA569B2B2513806300CDF0E5 /* ListModifier.swift */,
 				DA55EC6B24FB8D370055DFF5 /* DateFormatterCustom.swift */,
 				DAAFF8F224DDA32C001C44C8 /* NavigateModifier.swift */,
 				DACBBB7824DC81C400D541C4 /* ImagePicker.swift */,
@@ -248,6 +277,7 @@
 				DA55EC6524FAF9B50055DFF5 /* MoodJournalEntry+extension.swift */,
 				DACC18F924E01E3E00EEB5A3 /* MoodStore.swift */,
 				DAEB0594250CA47800B96F8C /* QuoteStore.swift */,
+				DA42325C250FF39900ECA374 /* PrivacyPromiseStore.swift */,
 			);
 			path = "Data models";
 			sourceTree = "<group>";
@@ -260,6 +290,7 @@
 				DA9EB6DD25067D5C00DE363F /* MFTimePicker.swift */,
 				DA9EB6D72505124F00DE363F /* MFListView.swift */,
 				DA9EB6D9250521C800DE363F /* MFListToggleView.swift */,
+				DA42325A250FF0E200ECA374 /* PrivacyPromiseView.swift */,
 			);
 			path = "Settings UI";
 			sourceTree = "<group>";
@@ -271,9 +302,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DACBBB6124DC224E00D541C4 /* Build configuration list for PBXNativeTarget "MindFlo" */;
 			buildPhases = (
+				140195C99B278A7A47F4722B /* [CP] Check Pods Manifest.lock */,
 				DACBBB4624DC224900D541C4 /* Sources */,
 				DACBBB4724DC224900D541C4 /* Frameworks */,
 				DACBBB4824DC224900D541C4 /* Resources */,
+				8A48235715DA3A2FD60A1064 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -329,12 +362,55 @@
 			buildActionMask = 2147483647;
 			files = (
 				DACBBB5D24DC224E00D541C4 /* LaunchScreen.storyboard in Resources */,
+				DA42325F2510F88400ECA374 /* GoogleService-Info.plist in Resources */,
 				DACBBB5A24DC224E00D541C4 /* Preview Assets.xcassets in Resources */,
 				DACBBB5724DC224E00D541C4 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		140195C99B278A7A47F4722B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MindFlo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8A48235715DA3A2FD60A1064 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MindFlo/Pods-MindFlo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MindFlo/Pods-MindFlo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MindFlo/Pods-MindFlo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		DACBBB4624DC224900D541C4 /* Sources */ = {
@@ -343,7 +419,9 @@
 			files = (
 				DACBBB6724DC331300D541C4 /* ChooseMoodView.swift in Sources */,
 				DACBBB4E24DC224900D541C4 /* AppDelegate.swift in Sources */,
+				DA42325D250FF39900ECA374 /* PrivacyPromiseStore.swift in Sources */,
 				DACC18F724DFF0D700EEB5A3 /* Mood.swift in Sources */,
+				DAEBEEB9251248BD00F9CF55 /* ZeroJournalPosts.swift in Sources */,
 				DA55EC7024FC1EE60055DFF5 /* JournalDetailView.swift in Sources */,
 				DACBBB5024DC224900D541C4 /* SceneDelegate.swift in Sources */,
 				DACC18FC24E022E700EEB5A3 /* MoodsHorizontalScrollGrid.swift in Sources */,
@@ -358,6 +436,7 @@
 				DACBBB7924DC81C400D541C4 /* ImagePicker.swift in Sources */,
 				DADE204A2503ADB800FA93A9 /* SettingsMainView.swift in Sources */,
 				DACBB27024E19806006E5D30 /* PickedMood.swift in Sources */,
+				DA42325B250FF0E200ECA374 /* PrivacyPromiseView.swift in Sources */,
 				DACBBB6924DC34AB00D541C4 /* WriteMoodJournalView.swift in Sources */,
 				DAEB0597250CBD4600B96F8C /* IconToggleStyle.swift in Sources */,
 				DACBBB5524DC224900D541C4 /* ContentView.swift in Sources */,
@@ -367,8 +446,8 @@
 				DACBBB5324DC224900D541C4 /* MindFlo.xcdatamodeld in Sources */,
 				DAAFF8F524DDD6D3001C44C8 /* SheetHeightModifier.swift in Sources */,
 				DADE2048250388F300FA93A9 /* CircularPrimaryButton.swift in Sources */,
+				DA569B3425138CFD00CDF0E5 /* testinng.swift in Sources */,
 				DACBBB6B24DC49CE00D541C4 /* RoundedButtonModifier.swift in Sources */,
-				DA9EB6DC25054CBF00DE363F /* testing.swift in Sources */,
 				DACC18FE24E04FFF00EEB5A3 /* CircularMoodButton.swift in Sources */,
 				DACC18FA24E01E3E00EEB5A3 /* MoodStore.swift in Sources */,
 				DAEBA76D24DD046B00E4DF76 /* AutoFocusTextInputView.swift in Sources */,
@@ -376,6 +455,7 @@
 				DAAFF8F324DDA32C001C44C8 /* NavigateModifier.swift in Sources */,
 				DA9EB6DE25067D5C00DE363F /* MFTimePicker.swift in Sources */,
 				DACBBB7B24DC81D800D541C4 /* CameraPicker.swift in Sources */,
+				DA569B2C2513806300CDF0E5 /* ListModifier.swift in Sources */,
 				DACBBB7624DC7D6500D541C4 /* ColorManager.swift in Sources */,
 				DAEB0599250CD24C00B96F8C /* QuoteView.swift in Sources */,
 				DA9EB6DA250521C800DE363F /* MFListToggleView.swift in Sources */,
@@ -450,7 +530,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -504,7 +584,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -516,6 +596,7 @@
 		};
 		DACBBB6224DC224E00D541C4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C1CC4E98D2DC7BBE9F37BFCF /* Pods-MindFlo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = MindFlo/MindFlo.entitlements;
@@ -524,7 +605,7 @@
 				DEVELOPMENT_TEAM = LK47C325Q7;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = MindFlo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -538,6 +619,7 @@
 		};
 		DACBBB6324DC224E00D541C4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 231F11268AA7445ED7C08BD7 /* Pods-MindFlo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = MindFlo/MindFlo.entitlements;
@@ -546,7 +628,7 @@
 				DEVELOPMENT_TEAM = LK47C325Q7;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = MindFlo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
