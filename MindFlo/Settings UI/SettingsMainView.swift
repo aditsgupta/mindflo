@@ -186,6 +186,7 @@ struct SettingsMainView: View {
                 Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
                     MFListView(title: "Rate the app", icon: "star.circle.fill", divider: false)
                 }
+                NavigationLink("testing", destination: testinng())
             }
             .buttonStyle(PlainButtonStyle())
             .clipShape(RoundedRectangle(cornerRadius: 16))

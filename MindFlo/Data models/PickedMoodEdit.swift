@@ -21,7 +21,7 @@ class PickedMoodEdit: ObservableObject {
             }
         }
     }
-    var journalImage = UIImage()
+    @Published var journalImage = UIImage()
     var journalDate = Date()
     @Published var journalTextCount = 0
 

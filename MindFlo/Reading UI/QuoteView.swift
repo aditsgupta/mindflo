@@ -23,7 +23,7 @@ struct QuoteView: View {
                     .padding(.trailing, 16)
                 VStack(alignment: .leading) {
                     Text("\(quotes[quoteNum].title)")
-                        .font(.system(size: 15))
+                        .font(.system(size: 16))
                         .multilineTextAlignment(.leading)
                         .foregroundColor(.black)
                     Text("- \(quotes[quoteNum].author) ")

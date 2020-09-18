@@ -60,7 +60,7 @@ struct JournalRowView: View {
 							}
 						}
                     }
-                    
+                    .buttonStyle(PlainButtonStyle())
                     .padding(.all)
                     .background(
                         RoundedRectangle(cornerRadius: 24)

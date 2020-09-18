@@ -24,9 +24,6 @@ struct EditMoodJournalView: View {
     @State private var showJournalDeleteAlert: Bool = false
     @State private var showImageDeleteAlert: Bool = false
     @State private var showColorPicker: Bool = false
-    @State private var isFocussed: Bool = true
-    
-    @State private var toolbarPadding: CGFloat = 16
     @State var journalUIImage = UIImage()
     
     //Dateformatter ----> Add from Helper
@@ -126,7 +123,7 @@ struct EditMoodJournalView: View {
                         .foregroundColor(Color.black.opacity(0.6))
                         .padding(.leading, 4)
                     
-                    AutoFocusTextInputView(text: $pickedMoodEdit.journalText, isFirstResponder: isFocussed)
+                    AutoFocusTextInputView(text: $pickedMoodEdit.journalText, isFirstResponder: true)
                 }
                 .padding(.horizontal, 16)
                 
@@ -238,18 +235,8 @@ struct EditMoodJournalView: View {
                     }
                 }
                 .padding(.horizontal, 24)
-                .padding(.bottom, (toolbarPadding))
-                .onReceive(Publishers.keyboardHeight) {
-                    let keyboardHeight = $0
-                    let bottomSafePadding =  (UIApplication.shared.windows.first?.safeAreaInsets.bottom ?? 0)
-                    self.toolbarPadding = keyboardHeight + 16
-                    if keyboardHeight == 0 {
-                        self.toolbarPadding = bottomSafePadding + 16
-                    }
-                }
-                
+                .padding(.bottom, 16)
             }
-            .edgesIgnoringSafeArea(.bottom)
         }
     }
     

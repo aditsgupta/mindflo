@@ -47,6 +47,7 @@ struct JournalHomeView: View {
                 
                 Section() {
                     QuoteView(mindfloDay: groupedByDate(MoodJournalItems).count)
+                    
                 }
                 LazyVStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: 16, pinnedViews: [.sectionHeaders], content: {
                     
@@ -69,7 +70,7 @@ struct JournalHomeView: View {
                                     }
                                     .offset(x: 16, y: 32)
                                     .padding(.bottom, 16)
-                                    //.background(Color.red)
+                                //.background(Color.red)
                         ){
                             JournalRowView(mindFloEntries: moodJournalEntriesGroup, isNavigationBarHidden: self.$isNavigationBarHidden)
                                 .padding(.horizontal)

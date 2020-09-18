@@ -86,10 +86,7 @@ struct PersonalJournalView: View {
                         JournalRowView(mindFloEntries: moodJournalEntriesGroup, isNavigationBarHidden: self.$isNavigationBarHidden)
                     }
                 }
-//                ForEach(groupedByDate(MoodJournalItems), id: \.self) { moodJournalEntriesGroup in
-//
-//                    JournalRowView(mindFloEntries: moodJournalEntriesGroup, isNavigationBarHidden: self.$isNavigationBarHidden)
-//                }
+
                 Section(){
                     Spacer().frame(height: 72)
                     //end of list spacing for readability

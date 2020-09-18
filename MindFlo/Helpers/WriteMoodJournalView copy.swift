@@ -5,7 +5,7 @@
 //  Created by Adit Gupta on 06/08/20.
 //  Copyright © 2020 Adit Gupta. All rights reserved.
 //
-
+/*
 import SwiftUI
 import Combine
 import Firebase
@@ -22,11 +22,11 @@ struct WriteMoodJournalView: View {
     @State private var showJournalDeleteAlert: Bool = false
     @State private var showImageDeleteAlert: Bool = false
     @State private var showColorPicker: Bool = false
+    @State private var isFocussed: Bool = true
     @State private var recheckinActive: Bool = false
     @State private var showRecheckinTimePicker: Bool = false
     
-    @State var txt = ""
-    
+    @State private var toolbarPadding: CGFloat = 16
     
     //Formatter -----> Add from Helper
     static let dateFormat: DateFormatter = {
@@ -41,6 +41,7 @@ struct WriteMoodJournalView: View {
             pickedMood.pmColor
                 .edgesIgnoringSafeArea(.all)
             VStack(spacing: 16) {
+            
                 HStack{
                     //Dragbar
                     Rectangle()
@@ -164,8 +165,8 @@ struct WriteMoodJournalView: View {
                     .foregroundColor(Color.black.opacity(0.10))
                     .padding(.leading, 16)
                 
-                
                 VStack (alignment: .leading) {
+                   
                     HStack{
                         insertHintText()
                         .font(.system(size: 18))
@@ -178,21 +179,20 @@ struct WriteMoodJournalView: View {
                     .frame(height: 24)
                     .clipped()
                     
-                    AutoFocusTextInputView(text: $pickedMood.pmJournalText, isFirstResponder: true)
+                    AutoFocusTextInputView(text: $pickedMood.pmJournalText, isFirstResponder: isFocussed)
+                        .background(Color.blue)
                         
                 }
                 .padding(.horizontal, 16)
-
-                
                 
                 //Bottom Toolbar
                 HStack(alignment: .bottom, spacing: 16) {
                     if pickedMood.pmJournalImage == UIImage() {
                         Button(action: {
-                            self.dismissKeyboard()
                             //Take a picture
                             self.showCameraPicker.toggle()
-                            
+                            //remove Text focus keyboard
+                            self.dismissKeyboard()
 
                         }) {
                             Image(systemName: "camera")
@@ -212,9 +212,10 @@ struct WriteMoodJournalView: View {
                         
                         
                         Button(action: {
-                            self.dismissKeyboard()
                             // Choose from gallery
                             self.showGalleryPicker.toggle()
+                            //remove Text focus keyboard
+                            self.dismissKeyboard()
 
                         }) {
                             Image(systemName: "photo")
@@ -230,6 +231,7 @@ struct WriteMoodJournalView: View {
                     else {
                         //show PickedImage preview with remove option
                         Button(action: {
+                            //remove Text focus keyboard
                             self.dismissKeyboard()
                             //Remove Image alert
                             UINotificationFeedbackGenerator().notificationOccurred(.warning)
@@ -264,6 +266,7 @@ struct WriteMoodJournalView: View {
                         }
                     }
                     Button(action: {
+                        //remove Text focus keyboard
                         self.dismissKeyboard()
                         // Show Color picker
                         self.showColorPicker.toggle()
@@ -281,6 +284,7 @@ struct WriteMoodJournalView: View {
                     
                     Spacer()
                     Button(action: {
+                        //Dismiss  Keyboard
                         self.dismissKeyboard()
                         //Discard & clear Journal entry
                         UINotificationFeedbackGenerator().notificationOccurred(.warning)
@@ -305,10 +309,20 @@ struct WriteMoodJournalView: View {
                         )
                     }
                 }
+                .background(Color.red)
                 .padding([.horizontal, .top], 8)
-                .padding(.bottom, 16)
+                .padding(.bottom, (toolbarPadding))
+                .onReceive(Publishers.keyboardHeight) {
+                    let keyboardHeight = $0
+                    let bottomSafePadding =  (UIApplication.shared.windows.first?.safeAreaInsets.bottom ?? 0)
+                    self.toolbarPadding = keyboardHeight + 16
+                    if keyboardHeight == 0 {
+                        self.toolbarPadding = bottomSafePadding + 16
+                    }
+                }
                 
             }
+            .edgesIgnoringSafeArea(.bottom)
         }
     }
     
@@ -382,11 +396,34 @@ struct WriteMoodJournalView: View {
     
     func dismissKeyboard() {
         UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to:nil, from:nil, for:nil)
-
+        isFocussed = false
     }
 }
-
-
+extension Publishers {
+    // Determine keyboard height and publish
+    static var keyboardHeight: AnyPublisher<CGFloat, Never> {
+        
+        let willShow = NotificationCenter.default.publisher(for: UIApplication.keyboardWillShowNotification)
+            .map { $0.keyboardHeight }
+        
+        let willHide = NotificationCenter.default.publisher(for: UIApplication.keyboardWillHideNotification)
+            .map { _ in CGFloat(0) }
+        
+        return MergeMany(willShow, willHide)
+            .eraseToAnyPublisher()
+    }
+}
+extension Notification {
+    var keyboardHeight: CGFloat {
+        return (userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect)?.height ?? 0
+    }
+}
+//// extension for keyboard to dismiss
+extension UIApplication {
+    func endEditing() {
+        sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+    }
+}
 
 
 struct WriteMoodJournalView_Previews: PreviewProvider {
@@ -409,3 +446,4 @@ struct WriteMoodJournalView_Previews: PreviewProvider {
         }
     }
 }
+*/

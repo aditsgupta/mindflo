@@ -18,14 +18,14 @@ struct MindfloHeaderView: View {
             ZStack {
                 //Setting button
                 NavigationLink(destination: SettingsMainView(userSettings: userSettings, isNavigationBarHidden: $isNavigationBarHidden), isActive: $showSettingsView) {
-                    EmptyView()
-                        .frame(width: 32)
+                    Image("HomePreferencesCTA")
                         .onTapGesture {
                             //Haptic feedback
                             UIImpactFeedbackGenerator(style: .medium).impactOccurred()
+                            showSettingsView.toggle()
                     }
                 }
-                Image("HomePreferencesCTA")
+                .buttonStyle(PlainButtonStyle())
             }
             .frame(width: 32)
             
