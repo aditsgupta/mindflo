@@ -17,7 +17,7 @@ struct MindfloHeaderView: View {
         HStack{
             ZStack {
                 //Setting button
-                NavigationLink(destination: SettingsMainView(userSettings: userSettings, isNavigationBarHidden: $isNavigationBarHidden), isActive: $showSettingsView) {
+                NavigationLink(destination: SettingsMainView(userSettings: $userSettings, isNavigationBarHidden: $isNavigationBarHidden), isActive: $showSettingsView) {
                     Image("HomePreferencesCTA")
                         .onTapGesture {
                             //Haptic feedback

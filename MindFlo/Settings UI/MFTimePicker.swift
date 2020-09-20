@@ -10,16 +10,18 @@ import SwiftUI
 import Combine
 
 struct MFTimePicker: View {
-    @ObservedObject var userSettings = UserSettings()
+    //@ObservedObject var userSettings = UserSettings()
     
     @Binding var pickedTime: Date
     @Binding var showView: Bool
     
     var body: some View {
         VStack {
-            DatePicker("Checkin time", selection: $pickedTime, displayedComponents: .hourAndMinute)
-            .labelsHidden()
-
+            DatePicker(" ", selection: $pickedTime, displayedComponents: .hourAndMinute)
+                .datePickerStyle(WheelDatePickerStyle())
+                .labelsHidden()
+                .environment(\.locale, Locale.current)
+                
             Button(action: {
                 //Dimiss modal
                 UINotificationFeedbackGenerator().notificationOccurred(.success)

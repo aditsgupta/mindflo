@@ -16,7 +16,7 @@ struct SettingsMainView: View {
     @State private var showTimepickerEvening = false
     @State private var showTimepickerCustom = false
     @State private var addUserName = false
-    @ObservedObject var userSettings: UserSettings
+    @Binding var userSettings: UserSettings
     @Binding var isNavigationBarHidden: Bool
     
     var body: some View {
@@ -112,6 +112,7 @@ struct SettingsMainView: View {
                 }
                 .sheet(height: SheetHeight.points(360), isPresented: $showTimepickerEvening) {
                     MFTimePicker(pickedTime: self.$userSettings.eveningCheckinTime, showView: self.$showTimepickerEvening)
+                        .environmentObject(userSettings)
                 }
                 
                 Button(action: {
@@ -227,6 +228,6 @@ struct SettingsMainView: View {
 
 struct SettingsMainView_Previews: PreviewProvider {
     static var previews: some View {
-        SettingsMainView(userSettings: UserSettings(), isNavigationBarHidden: .constant(false))
+        SettingsMainView(userSettings: .constant(UserSettings()), isNavigationBarHidden: .constant(false))
     }
 }
