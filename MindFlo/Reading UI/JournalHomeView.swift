@@ -49,6 +49,12 @@ struct JournalHomeView: View {
                     QuoteView(mindfloDay: groupedByDate(MoodJournalItems).count)
                     
                 }
+                if MoodJournalItems.isEmpty {
+                    Section(){
+                        FTUEView()
+                    }
+                }
+                
                 LazyVStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: 16, pinnedViews: [.sectionHeaders], content: {
                     
                     ForEach(groupedByDate(MoodJournalItems), id: \.self) { moodJournalEntriesGroup in
@@ -96,10 +102,10 @@ struct JournalHomeView: View {
             self.userSettings.mfJournalDays =  self.groupedByDate(self.MoodJournalItems).count
             
             //Firebase
-            Analytics.logEvent("home_Visit", parameters: [
-                "MFJ_posts" : self.userSettings.mfJournalPosts,
-                "MFJ_days" : self.userSettings.mfJournalDays
-            ])
+            Analytics.logEvent(AnalyticsEventScreenView,
+                               parameters: [AnalyticsParameterScreenName: "Journal Home",
+                                            "MFJ_posts" : self.userSettings.mfJournalPosts,
+                                            "MFJ_days" : self.userSettings.mfJournalDays])
         }
         
         .onReceive(chooseMoodPublisher) { (_) in

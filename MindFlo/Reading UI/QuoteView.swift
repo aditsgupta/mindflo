@@ -19,13 +19,15 @@ struct QuoteView: View {
             HStack(alignment: .top) {
                 Image("quoteIcon")
                     .padding(.top, 4)
-                    .padding(.leading, 12)
-                    .padding(.trailing, 16)
+                    .padding(.horizontal, 20)
                 VStack(alignment: .leading) {
                     Text("\(quotes[quoteNum].title)")
-                        .font(.system(size: 16))
+                        .fixedSize(horizontal: false, vertical: true)
+                        .font(.system(.body, design: .serif ))
+                        .foregroundColor(Color(.black))
                         .multilineTextAlignment(.leading)
-                        .foregroundColor(.black)
+                        .lineLimit(5)
+                    
                     Text("- \(quotes[quoteNum].author) ")
                         .font(.system(size: 14))
                         .italic()
@@ -33,7 +35,7 @@ struct QuoteView: View {
                         .padding(.top, 8)
                         .foregroundColor(.gray)
                 }
-                .padding(.trailing, 8)
+                .padding(.trailing)
             }
              .padding([.top], 24)
         }

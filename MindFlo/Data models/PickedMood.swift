@@ -36,6 +36,7 @@ class PickedMood: ObservableObject {
         pmJournalImage = UIImage()
         pmJournalText = ""
         recheckInHours = 0
+        writeJournalWithPickedMood = false
     }
 }
 

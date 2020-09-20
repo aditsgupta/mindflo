@@ -7,8 +7,10 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct SettingsMainView: View {
+    @Environment(\.openURL) var openURL //to open Safari links
     
     @State private var showTimepickerMorning = false
     @State private var showTimepickerEvening = false
@@ -16,6 +18,7 @@ struct SettingsMainView: View {
     @State private var addUserName = false
     @ObservedObject var userSettings: UserSettings
     @Binding var isNavigationBarHidden: Bool
+    
     var body: some View {
         
         ScrollView {
@@ -176,17 +179,26 @@ struct SettingsMainView: View {
                     MFListView(title: "Share Mindflo", icon: "square.and.arrow.up.fill")
                 }
                 
-                Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
+                Button(action: {
+                    let urlString = "mailto:aditsgupta@gmail.com?subject=Minflo feedback".addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)
+                    openURL(URL(string: urlString!)!)
+                }) {
                     MFListView(title: "Send Feedback", icon: "envelope.open.fill")
                 }
-                Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
+                
+                Button(action: {
+                    let urlString = "https://twitter.com/intent/tweet?text=Hey @aditsgupta".addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)
+                    openURL(URL(string: urlString!)!)
+                }) {
                     MFListView(title: "Tweet to me", icon: "paperplane.fill")
                 }
                 
-                Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
+                Button(action: {
+                    
+                }) {
                     MFListView(title: "Rate the app", icon: "star.circle.fill", divider: false)
                 }
-                NavigationLink("testing", destination: testinng())
+                //NavigationLink("testing", destination: testinng())
             }
             .buttonStyle(PlainButtonStyle())
             .clipShape(RoundedRectangle(cornerRadius: 16))
@@ -201,6 +213,11 @@ struct SettingsMainView: View {
         .navigationBarHidden(false)
         .onAppear(){
             self.isNavigationBarHidden = false
+
+            //Firebase
+            Analytics.logEvent(AnalyticsEventScreenView,
+                               parameters: [AnalyticsParameterScreenName: "Settings",
+                                            "App lock enabled" : self.userSettings.faceID])
         }
         
     }

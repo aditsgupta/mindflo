@@ -175,7 +175,10 @@ struct JournalDetailView: View {
                 .navigationBarHidden(false)
                 .onAppear(){
                     self.isNavigationBarHidden = false
-                    Analytics.logEvent("details_Visit", parameters: ["source" : "home"])
+                    //Firebase
+                    //Firebase
+                    Analytics.logEvent(AnalyticsEventScreenView,
+                                       parameters: [AnalyticsParameterScreenName: "Journal Details"])
                 }
             } else {
                 EmptyView()

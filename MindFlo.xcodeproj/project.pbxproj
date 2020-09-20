@@ -62,7 +62,7 @@
 		DAEB0597250CBD4600B96F8C /* IconToggleStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEB0596250CBD4600B96F8C /* IconToggleStyle.swift */; };
 		DAEB0599250CD24C00B96F8C /* QuoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEB0598250CD24C00B96F8C /* QuoteView.swift */; };
 		DAEBA76D24DD046B00E4DF76 /* AutoFocusTextInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEBA76C24DD046B00E4DF76 /* AutoFocusTextInputView.swift */; };
-		DAEBEEB9251248BD00F9CF55 /* ZeroJournalPosts.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEBEEB8251248BD00F9CF55 /* ZeroJournalPosts.swift */; };
+		DAEBEEB9251248BD00F9CF55 /* FTUEView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEBEEB8251248BD00F9CF55 /* FTUEView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -125,7 +125,7 @@
 		DAEB0596250CBD4600B96F8C /* IconToggleStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconToggleStyle.swift; sourceTree = "<group>"; };
 		DAEB0598250CD24C00B96F8C /* QuoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteView.swift; sourceTree = "<group>"; };
 		DAEBA76C24DD046B00E4DF76 /* AutoFocusTextInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoFocusTextInputView.swift; sourceTree = "<group>"; };
-		DAEBEEB8251248BD00F9CF55 /* ZeroJournalPosts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZeroJournalPosts.swift; sourceTree = "<group>"; };
+		DAEBEEB8251248BD00F9CF55 /* FTUEView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FTUEView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,7 +192,7 @@
 				DADE2047250388F300FA93A9 /* CircularPrimaryButton.swift */,
 				DAEB0598250CD24C00B96F8C /* QuoteView.swift */,
 				DA569B432513981F00CDF0E5 /* MindfloHeaderView.swift */,
-				DAEBEEB8251248BD00F9CF55 /* ZeroJournalPosts.swift */,
+				DAEBEEB8251248BD00F9CF55 /* FTUEView.swift */,
 				DAD31D3B2509686A00502873 /* AuthenticationBlurView.swift */,
 			);
 			path = "Reading UI";
@@ -430,7 +430,7 @@
 				DACBBB4E24DC224900D541C4 /* AppDelegate.swift in Sources */,
 				DA42325D250FF39900ECA374 /* PrivacyPromiseStore.swift in Sources */,
 				DACC18F724DFF0D700EEB5A3 /* Mood.swift in Sources */,
-				DAEBEEB9251248BD00F9CF55 /* ZeroJournalPosts.swift in Sources */,
+				DAEBEEB9251248BD00F9CF55 /* FTUEView.swift in Sources */,
 				DA55EC7024FC1EE60055DFF5 /* JournalDetailView.swift in Sources */,
 				DACBBB5024DC224900D541C4 /* SceneDelegate.swift in Sources */,
 				DACC18FC24E022E700EEB5A3 /* MoodsHorizontalScrollGrid.swift in Sources */,

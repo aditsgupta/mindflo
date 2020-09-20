@@ -26,3 +26,4 @@ class PickedMoodEdit: ObservableObject {
     @Published var journalTextCount = 0
 
 }
+

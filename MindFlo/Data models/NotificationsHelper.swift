@@ -26,7 +26,7 @@ class NotificationsHelper {
     func setupMorningNotifications(at chosenTime: Date){
         let content = UNMutableNotificationContent()
         content.title = "☀️ Good Morning \(UserSettings().name)"
-        content.body = "Check-in with what's flo'ing through your mind since you woke up"
+        content.body = "Check in with what's flo'ing through your mind since you woke up"
         content.categoryIdentifier = "dailyCheckin"
         content.sound = UNNotificationSound.default
         
@@ -66,8 +66,8 @@ class NotificationsHelper {
     
     func setupCustomNotifications(at chosenTime: Date){
         let content = UNMutableNotificationContent()
-        content.title = "🌖 \(UserSettings().name), Let's check-in to your thoughts "
-        content.body = "Check-in with what's flo'ing on your mind right now."
+        content.title = "🌖 \(UserSettings().name), Let's check into your thoughts "
+        content.body = "Check in with what's flo'ing on your mind right now."
         content.categoryIdentifier = "dailyCheckin"
         content.sound = UNNotificationSound.default
         
