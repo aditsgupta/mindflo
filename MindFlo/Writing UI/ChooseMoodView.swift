@@ -16,19 +16,19 @@ struct ChooseMoodView: View {
     @EnvironmentObject var pickedMood: PickedMood
     
     var body: some View {
-        ZStack {
+        
+        
+        ZStack(alignment: .top) {
             pickedMood.pmColor.edgesIgnoringSafeArea(.top)
-            //ColorManager.bgGrey
-                .opacity(0.30)
+                .opacity(0.40)
                 .overlay(
                     Image("mindfloPattern")
                         .resizable()
                         .scaledToFill()
                         .edgesIgnoringSafeArea(.top)
                     ,
-                    alignment: .top
-            )
-            
+                    alignment: .center
+                )
             VStack {
                 VStack {
                     HStack{
@@ -59,7 +59,7 @@ struct ChooseMoodView: View {
                                 .overlay(
                                     Circle()
                                         .strokeBorder(Color.white.opacity(1.0), lineWidth: 8)
-                            )
+                                )
                             Text("\(pickedMood.pmEmoji)")
                                 .font(.system(size: 40.0))
                                 .fontWeight(.semibold)
@@ -73,7 +73,7 @@ struct ChooseMoodView: View {
                             //haptic feedbback
                             UIImpactFeedbackGenerator(style: .heavy).impactOccurred()
                             if !self.pickedMood.pmTitle.isEmpty {
-
+                                
                                 self.pickedMood.pmJournalDate = Date()
                                 self.pickedMood.writeJournalWithPickedMood.toggle()
                                 
@@ -107,14 +107,14 @@ struct ChooseMoodView: View {
                         .cornerRadius(12)
                         .padding(.all, 24)
                 }
-                
                 MoodsVerticalGrid(moodStore: MoodStore())
                     .background(Color(.white).edgesIgnoringSafeArea(.bottom))
                     .frame(width: UIScreen.main.bounds.width)
             }
-            .padding(.horizontal)
-            
         }
+        
+        .padding(.horizontal)
+        
         .navigate(to: WriteMoodJournalView(), when: $pickedMood.writeJournalWithPickedMood)
         .onReceive(NotificationCenter.default.publisher(for: .didDismissMoodSheet)) { _ in
             self.presentationMode.wrappedValue.dismiss()

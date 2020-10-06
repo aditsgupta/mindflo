@@ -10,7 +10,6 @@ import SwiftUI
 import Combine
 
 struct MFTimePicker: View {
-    //@ObservedObject var userSettings = UserSettings()
     
     @Binding var pickedTime: Date
     @Binding var showView: Bool

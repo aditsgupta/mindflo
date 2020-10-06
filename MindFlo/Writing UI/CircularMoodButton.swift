@@ -26,14 +26,14 @@ struct CircularMoodButton: View {
             }) {
                 ZStack {
                     Circle()
-                        .fill(mood.moodColor.opacity(1.0))
-                        .frame(width: 48.0, height: 48.0)
+                        .fill(mood.moodColor.opacity(0.95))
+                        .frame(width: 56.0, height: 56.0)
                         .background(
                             Circle()
                                 .offset(x: -1, y: -2)
                                 .foregroundColor(Color.white)
-                                .shadow(color: Color.black.opacity(0.5), radius: 0, x: 1, y: 2)
-                            //.strokeBorder(ColorManager.bgGrey, lineWidth: 4.0)
+                                .shadow(color: Color.black.opacity(0.6), radius: 0, x: 1, y: 2)
+                                //.strokeBorder(ColorManager.bgGrey, lineWidth: 4.0)
                         )
                         .clipShape(Circle()) //Improves the smoothening of edges
                     

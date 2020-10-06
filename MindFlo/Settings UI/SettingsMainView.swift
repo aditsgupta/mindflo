@@ -8,6 +8,7 @@
 
 import SwiftUI
 import Firebase
+import StoreKit
 
 struct SettingsMainView: View {
     @Environment(\.openURL) var openURL //to open Safari links
@@ -15,6 +16,7 @@ struct SettingsMainView: View {
     @State private var showTimepickerMorning = false
     @State private var showTimepickerEvening = false
     @State private var showTimepickerCustom = false
+    @State private var showProUpgrade = false
     @State private var addUserName = false
     @Binding var userSettings: UserSettings
     @Binding var isNavigationBarHidden: Bool
@@ -45,7 +47,7 @@ struct SettingsMainView: View {
                     }
                 }
                 
-                NavigationLink(destination: SettingsAddNameView(userSettings: userSettings), isActive: $addUserName) {
+                NavigationLink(destination: AddNameView(userSettings: $userSettings), isActive: $addUserName) {
                     MFListView(title: (userSettings.name.isEmpty ? "Add your name" : userSettings.name), icon: "person.crop.circle")
                 }
                 
@@ -78,7 +80,7 @@ struct SettingsMainView: View {
                                 .fontWeight(.bold)
                                 .padding(.top, 8)
                             
-                            Text("Gentle nudges to help you commit to logging your moods.")
+                            Text("Gentle reminders to help you commit to logging your mood.")
                                 .font(.system(size: 12))
                                 .padding(.top, 8)
                                 .foregroundColor(Color.black.opacity(0.6))
@@ -88,63 +90,75 @@ struct SettingsMainView: View {
                         Image("calendarSettings")
                     }
                 }
-                Button(action: {
-                    //Show ☀️ time picker sheet
-                    if !self.userSettings.morningCheckin{
-                        self.showTimepickerMorning.toggle()
-                    }
-                    
-                }) {
-                    MFListToggleView(title: "Mornings at \(userSettings.morningCheckinTime.timeShort.lowercased())", icon: "sun.min.fill", toggleState: $userSettings.morningCheckin)
-                }
-                .sheet(height: SheetHeight.points(360), isPresented: $showTimepickerMorning) {
-                    MFTimePicker(pickedTime: self.$userSettings.morningCheckinTime, showView: self.$showTimepickerMorning)
-                }
                 
-                Button(action: {
-                    //Show 🌙 time picker sheet
-                    if !self.userSettings.eveningCheckin{
-                        self.showTimepickerEvening.toggle()
-                    }
-                    
-                }) {
-                    MFListToggleView(title: "Evenings at \(userSettings.eveningCheckinTime.timeShort.lowercased())", icon: "moon.fill", toggleState: $userSettings.eveningCheckin)
-                }
-                .sheet(height: SheetHeight.points(360), isPresented: $showTimepickerEvening) {
-                    MFTimePicker(pickedTime: self.$userSettings.eveningCheckinTime, showView: self.$showTimepickerEvening)
-                        .environmentObject(userSettings)
-                }
-                
-                Button(action: {
-                    //Show ⏱custom time picker sheet
-                    self.userSettings.customCheckinSetup = true
-                    
-                    self.showTimepickerCustom.toggle()
-                }) {
-                    if userSettings.customCheckinSetup {
-                        MFListToggleView(title: "Everyday at \(userSettings.customCheckinTime.timeShort.lowercased())", icon: "clock.fill", toggleState: $userSettings.customCheckin, divider: false)
-                    }
-                    else{
-                        MFListView(title: "Choose a time", icon: "plus.circle.fill", divider: false)
-                    }
-                }
-                .sheet(height: SheetHeight.points(400), isPresented: $showTimepickerCustom) {
-                    VStack {
-                        Button(action: {
-                            //Reset the toggleview
-                            self.userSettings.customCheckinSetup = false
-                            //dismiss sheet
-                            self.showTimepickerCustom.toggle()
-                            
-                        }) {
-                            Text("Remove")
+                if userSettings.notificationsAllowed {
+                    //Notifications are allowed
+                    Button(action: {
+                        //Show ☀️ time picker sheet
+                        if !self.userSettings.morningCheckin{
+                            self.showTimepickerMorning.toggle()
                         }
-                        .buttonStyle(PlainButtonStyle())
-                        .padding()
                         
-                        MFTimePicker(pickedTime: self.$userSettings.customCheckinTime, showView: self.$showTimepickerCustom)
+                    }) {
+                        MFListToggleView(title: "Mornings at \(userSettings.morningCheckinTime.timeShort.lowercased())", icon: "sun.min.fill", toggleState: $userSettings.morningCheckin)
                     }
-                    .background(Color.white)
+                    .sheet(height: SheetHeight.points(360), isPresented: $showTimepickerMorning) {
+                        MFTimePicker(pickedTime: self.$userSettings.morningCheckinTime, showView: self.$showTimepickerMorning)
+                    }
+                    
+                    Button(action: {
+                        //Show 🌙 time picker sheet
+                        if !self.userSettings.eveningCheckin{
+                            self.showTimepickerEvening.toggle()
+                        }
+                        
+                    }) {
+                        MFListToggleView(title: "Evenings at \(userSettings.eveningCheckinTime.timeShort.lowercased())", icon: "moon.fill", toggleState: $userSettings.eveningCheckin)
+                    }
+                    .sheet(height: SheetHeight.points(360), isPresented: $showTimepickerEvening) {
+                        MFTimePicker(pickedTime: self.$userSettings.eveningCheckinTime, showView: self.$showTimepickerEvening)
+                            .environmentObject(userSettings)
+                    }
+                    
+                    Button(action: {
+                        //Show ⏱custom time picker sheet
+                        self.userSettings.customCheckinSetup = true
+                        
+                        self.showTimepickerCustom.toggle()
+                    }) {
+                        if userSettings.customCheckinSetup {
+                            MFListToggleView(title: "Everyday at \(userSettings.customCheckinTime.timeShort.lowercased())", icon: "clock.fill", toggleState: $userSettings.customCheckin, divider: false)
+                        }
+                        else{
+                            MFListView(title: "Choose a time", icon: "plus.circle.fill", divider: false)
+                        }
+                    }
+                    .sheet(height: SheetHeight.points(400), isPresented: $showTimepickerCustom) {
+                        VStack {
+                            Button(action: {
+                                //Reset the toggleview
+                                self.userSettings.customCheckinSetup = false
+                                //dismiss sheet
+                                self.showTimepickerCustom.toggle()
+                                
+                            }) {
+                                Text("Remove")
+                            }
+                            .buttonStyle(PlainButtonStyle())
+                            .padding()
+                            
+                            MFTimePicker(pickedTime: self.$userSettings.customCheckinTime, showView: self.$showTimepickerCustom)
+                        }
+                        .background(Color.white)
+                    }
+                    //
+                } else {
+                    //Notifications not allowed
+                    Button(action: {
+                        NotificationsHelper().authorizeUserNotification()
+                    }) {
+                        MFListView(title: "Allow notifications", icon: "alarm.fill", divider: false)
+                    }
                 }
             }
             .buttonStyle(PlainButtonStyle())
@@ -184,7 +198,7 @@ struct SettingsMainView: View {
                     let urlString = "mailto:aditsgupta@gmail.com?subject=Minflo feedback".addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)
                     openURL(URL(string: urlString!)!)
                 }) {
-                    MFListView(title: "Send Feedback", icon: "envelope.open.fill")
+                    MFListView(title: "Send feedback", icon: "envelope.open.fill")
                 }
                 
                 Button(action: {
@@ -195,10 +209,26 @@ struct SettingsMainView: View {
                 }
                 
                 Button(action: {
+                    //Update usersetting for rate app
+                    userSettings.rateMindfloTaps += 1
                     
+                    if let windowScene = UIApplication.shared.windows.first?.windowScene { SKStoreReviewController.requestReview(in: windowScene) }
                 }) {
-                    MFListView(title: "Rate the app", icon: "star.circle.fill", divider: false)
+                    MFListView(title: "Rate on App Store", icon: "star.circle.fill", divider: false)
                 }
+                
+                /*
+                 For Pro Upgrade stuff
+                Button(action: {
+                    self.showProUpgrade.toggle()
+                }) {
+                    MFListView(title: "Upgrade to Pro", icon: "star.circle.fill", divider: false)
+                }
+                .sheet(isPresented: $showProUpgrade, content: {
+                    MFProUpgrade()
+                })
+                 */
+                
                 //NavigationLink("testing", destination: testinng())
             }
             .buttonStyle(PlainButtonStyle())

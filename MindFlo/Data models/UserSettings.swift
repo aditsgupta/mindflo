@@ -18,6 +18,12 @@ public class UserSettings: ObservableObject {
         }
     }
     
+    @Published var avatarID: Int {
+        didSet{
+            UserDefaults.standard.set(avatarID, forKey: "avatarID")
+        }
+    }
+    
     @Published var faceID: Bool {
         didSet{
             UserDefaults.standard.set(faceID, forKey: "faceID")
@@ -152,11 +158,18 @@ public class UserSettings: ObservableObject {
             UserDefaults.standard.set(mfJournalDays, forKey: "mfJournalDays")
         }
     }
+    
+    @Published var rateMindfloTaps: Int {
+        didSet{
+            UserDefaults.standard.set(rateMindfloTaps, forKey: "rateMindfloTaps")
+        }
+    }
     // fin User Lifecycle settings
     
     init() {
         //Personal settings default
         self.name = UserDefaults.standard.object(forKey: "name") as? String ?? ""
+        self.avatarID = UserDefaults.standard.object(forKey: "avatarID") as? Int ?? 2
         self.faceID = UserDefaults.standard.object(forKey: "faceID") as? Bool ?? false
         
         //Checkin settings default
@@ -182,7 +195,7 @@ public class UserSettings: ObservableObject {
         self.mfdayZero = UserDefaults.standard.object(forKey: "mfdayZero") as? Date ?? Date()
         self.mfJournalPosts = UserDefaults.standard.object(forKey: "mfJournalPosts") as? Int ?? 0
         self.mfJournalDays = UserDefaults.standard.object(forKey: "mfJournalDays") as? Int ?? 0
-        
+        self.rateMindfloTaps = UserDefaults.standard.object(forKey: "rateMindfloTaps") as? Int ?? 0
     }
     
     func updateMFPostsUserProperty(posts: Int){

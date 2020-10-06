@@ -10,8 +10,7 @@ import Foundation
 
 class QuoteStore {
     let allQuotes = [
-        Quote(title: "As you breathe in, cherish yourself. As you breathe out, cherish all beings.", author: "Dalai Lama"),
-        Quote(title: "A disciplined mind leads to happiness, and an undisciplined mind leads to suffering.", author: "Dalai Lama"),
+        
         Quote(title: "Knowing yourself is to be rooted in Being, instead of lost in your mind.", author: "Eckhart Tolle"),
         Quote(title: "Not thinking about anything is Zen. Once you know this, walking, sitting, or lying down, everything you do is Zen.", author: "Bodhidharma"),
         Quote(title: "The secret of health for both mind and body is not to mourn for the past, nor to worry about the future, but to live the present moment wisely and earnestly.", author: "Siddhārtha Gautama"),
@@ -20,6 +19,8 @@ class QuoteStore {
         Quote(title: "It’s when the discomfort strikes that they realize a strong mind is the most powerful weapon of all. ", author: "Chrissie Wellington"),
         Quote(title: "Throw away all weakness. Tell your body that it is strong, tell your mind that it is strong and have unbounded faith and hope in yourself.", author: "Swami Vivekananda"),
         Quote(title: "To understand the immeasurable, the mind must be extraordinarily quiet, still", author: "Jiddu Krishnamurti"),
+        Quote(title: "As you breathe in, cherish yourself. As you breathe out, cherish all beings.", author: "Dalai Lama"),
+        Quote(title: "A disciplined mind leads to happiness, and an undisciplined mind leads to suffering.", author: "Dalai Lama"),
         //10
         Quote(title: "Strong minds suffer without complaining; weak minds complain without suffering.", author: "Lettie Cowman"),
         Quote(title: "Strength does not come from physical capacity, it comes from indomitable will.", author: "Mahatma Gandhi"),

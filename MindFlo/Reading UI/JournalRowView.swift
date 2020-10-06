@@ -14,7 +14,7 @@ struct JournalRowView: View {
     @Binding var isNavigationBarHidden: Bool
     
     var body: some View {
-            //Add each moojJournal item in a date section
+            //Add each moodJournal item in a date section
             ForEach(mindFloEntries) { (mfEntry: MoodJournalEntry) in
 				HStack(alignment: .top) {
 					Spacer()

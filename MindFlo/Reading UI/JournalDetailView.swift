@@ -40,58 +40,8 @@ struct JournalDetailView: View {
                                 Spacer()
                             }
                             
-                            VStack(alignment: .leading) {
-                                //Large card view
-                                HStack(spacing: 12) {
-                                    Text("\(mindFloEntry.moodEmoji!)")
-                                        .font(.system(size: 28))
-                                        .fontWeight(.bold)
-                                    
-                                    Text("\(mindFloEntry.moodTitle!)")
-                                        .font(.system(size: 28))
-                                        .fontWeight(.bold)
-                                    
-                                    Spacer()
-                                }
-                                .padding(.horizontal)
-                                .padding(.top, 24)
-                                
-                                //Body text
-                                Text("\(mindFloEntry.journalText!)")
-                                    .font(.system(size:20))
-                                    .foregroundColor(Color(.black))
-                                    .multilineTextAlignment(.leading)
-                                    .padding([.top, .leading, .trailing])
-                                
-                                
-                                //Photo
-                                HStack{
-                                    mindFloEntry.journalImage.map { imagedata in
-                                        
-                                        Image(uiImage: UIImage(data: imagedata)!).resizable()
-                                            .renderingMode(.original)
-                                            .aspectRatio(UIImage(data: imagedata)!.size, contentMode: .fill)
-                                            .frame(maxHeight: 360, alignment: .center)
-                                            .cornerRadius(24)
-                                    }
-                                }
-                                .padding([.bottom, .leading, .trailing])
-                                
-                            }
-                            .background(
-                                RoundedRectangle(cornerRadius: 32.0)
-                                    .foregroundColor(Color(hex: mindFloEntry.moodColorHexCode ?? "EEE"))
-                                    .shadow(color: Color.black.opacity(0.10), radius: 0, x: 2, y: 3)
-                            )
-                                .background(
-                                    RoundedRectangle(cornerRadius: 32)
-                                        .offset(x: 2, y: 3)
-                                        .foregroundColor(Color(hex: mindFloEntry.moodColorHexCode ?? "EEE"))
-                            )
-                                .shadow(color: Color(.gray).opacity(0.10), radius: 4, x: 1, y: 2)
-                                .padding(.top)
-                            
-                            
+                            //Large details card
+                            DetailsCard(mindFloEntry: mindFloEntry)
                             
                             VStack(spacing: 24){
                                 //Buttons
@@ -187,7 +137,7 @@ struct JournalDetailView: View {
         
     }
     func setupShareSheet(){
-        let text = "I felt \(mindFloEntry.moodEmoji!) \(mindFloEntry.moodTitle!) on \(dateFormatter.string(from: mindFloEntry.journalDate!)). Sent via @Mindflo"
+        let text = "On \(dateFormatter.string(from: mindFloEntry.journalDate!)) I felt \(mindFloEntry.moodEmoji!) \(mindFloEntry.moodTitle!). Sent via @Mindflo"
         //let url = URL(string: "https://aditsgupta.com")
         var image = UIImage(named: "AppIcon")!
         if let imgData = mindFloEntry.journalImage{
@@ -213,6 +163,64 @@ struct JournalDetailView: View {
         Analytics.logEvent("details_EditAction", parameters: ["source" : "details"])
     }
 }
+
+struct DetailsCard: View {
+    var mindFloEntry : MoodJournalEntry
+    var body: some View {
+        VStack(alignment: .leading) {
+            //Large card view
+            HStack(spacing: 12) {
+                Text("\(mindFloEntry.moodEmoji!)")
+                    .font(.system(size: 28))
+                    .fontWeight(.bold)
+                
+                Text("\(mindFloEntry.moodTitle!)")
+                    .font(.system(size: 28))
+                    .fontWeight(.bold)
+                
+                Spacer()
+            }
+            .padding(.horizontal)
+            .padding(.top, 24)
+            
+            //Body text
+            Text("\(mindFloEntry.journalText!)")
+                .font(.system(size:20))
+                .foregroundColor(Color(.black))
+                .multilineTextAlignment(.leading)
+                .padding([.top, .leading, .trailing])
+            
+            
+            //Photo
+            HStack{
+                mindFloEntry.journalImage.map { imagedata in
+                    
+                    Image(uiImage: UIImage(data: imagedata)!).resizable()
+                        .renderingMode(.original)
+                        .aspectRatio(UIImage(data: imagedata)!.size, contentMode: .fill)
+                        .frame(maxHeight: 360, alignment: .center)
+                        .cornerRadius(24)
+                }
+            }
+            .padding([.bottom, .leading, .trailing])
+            
+        }
+        .background(
+            RoundedRectangle(cornerRadius: 32.0)
+                .foregroundColor(Color(hex: mindFloEntry.moodColorHexCode ?? "EEE"))
+                .shadow(color: Color.black.opacity(0.10), radius: 0, x: 2, y: 3)
+        )
+            .background(
+                RoundedRectangle(cornerRadius: 32)
+                    .offset(x: 2, y: 3)
+                    .foregroundColor(Color(hex: mindFloEntry.moodColorHexCode ?? "EEE"))
+        )
+            .shadow(color: Color(.gray).opacity(0.10), radius: 4, x: 1, y: 2)
+            .padding(.top)
+    }
+    
+}
+
 
 struct JournalDetailView_Previews: PreviewProvider {
     static var previews: some View {

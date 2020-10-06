@@ -20,12 +20,9 @@ struct ContentView: View {
     
     var body: some View {
         ZStack(alignment: .top) {
-            if #available(iOS 14.0, *){
-                JournalHomeView(userSettings: $userSettings, isNavigationBarHidden: $isNavigationBarHidden)
-            }
-            else{
-                PersonalJournalView(userSettings: $userSettings, isNavigationBarHidden: $isNavigationBarHidden)
-            }
+            
+            JournalHomeView(userSettings: $userSettings, isNavigationBarHidden: $isNavigationBarHidden)
+            
             
             if isNavigationBarHidden {
                 CircularPrimaryButton(showMoodSheet: $showMoodSheet)

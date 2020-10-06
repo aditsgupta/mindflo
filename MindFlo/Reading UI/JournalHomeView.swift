@@ -21,6 +21,7 @@ struct JournalHomeView: View {
     }
     
     let chooseMoodPublisher = NotificationCenter.default.publisher(for: NSNotification.Name("chooseMood"))
+    let saveMFJournalPublisher = NotificationCenter.default.publisher(for: NSNotification.Name("saveMFJournal"))
     
     //Group & sort the results by date
     func groupedByDate(_ result : FetchedResults<MoodJournalEntry>) -> [[MoodJournalEntry]]{
@@ -35,6 +36,7 @@ struct JournalHomeView: View {
     //Showing sheets
     @State private var showSettingsView = false
     @State private var showPrivacySheet = false
+    @State private var showLifecycleSheet = false
     
     var body: some View {
         
@@ -51,7 +53,7 @@ struct JournalHomeView: View {
                 }
                 if MoodJournalItems.isEmpty {
                     Section(){
-                        FTUEView()
+                        FTUEView(userSettings: $userSettings)
                     }
                 }
                 
@@ -70,7 +72,7 @@ struct JournalHomeView: View {
                                                 .font(.system(size: 24))
                                                 .fontWeight(.semibold)
                                         }
-                                        .padding(.top, 4)
+                                        .padding(.top, 16)
                                         .frame(height: 1)
                                         Spacer()
                                     }
@@ -88,6 +90,9 @@ struct JournalHomeView: View {
                         //end of list spacing for readability
                     }
                 })
+                .sheet(height: SheetHeight.infered, isPresented: self.$showLifecycleSheet, content: {
+                    LifecycleView()
+                })
             }
             .navigationBarTitle("")
             .navigationBarHidden(self.isNavigationBarHidden)
@@ -96,22 +101,51 @@ struct JournalHomeView: View {
             }
         }
         .onAppear(){
-            // Update number of posts
-            self.userSettings.mfJournalPosts = self.MoodJournalItems.count
-            //Update number of Days
-            self.userSettings.mfJournalDays =  self.groupedByDate(self.MoodJournalItems).count
+            let mfJournalPosts = self.MoodJournalItems.count
+            let mfJournalDays = self.groupedByDate(self.MoodJournalItems).count
+            
+            // Update number of posts & days
+            self.userSettings.mfJournalPosts = mfJournalPosts
+            self.userSettings.mfJournalDays = mfJournalDays
+            
             
             //Firebase
             Analytics.logEvent(AnalyticsEventScreenView,
                                parameters: [AnalyticsParameterScreenName: "Journal Home",
-                                            "MFJ_posts" : self.userSettings.mfJournalPosts,
-                                            "MFJ_days" : self.userSettings.mfJournalDays])
+                                            "MFJ_posts" : mfJournalPosts,
+                                            "MFJ_days" : mfJournalDays])
         }
         
-        .onReceive(chooseMoodPublisher) { (_) in
+        .onReceive(chooseMoodPublisher) { _ in
             //Remove all other views so that CHooseMoodsheet from notifications can be launched
             self.showSettingsView = false
             self.showPrivacySheet = false
+        }
+        .onReceive(saveMFJournalPublisher) { _ in
+            //Trigger lifecycle event based on this logic
+            let mfJournalPosts = self.MoodJournalItems.count
+            let mfJournalDays = self.groupedByDate(self.MoodJournalItems).count
+            
+            // Update number of posts & days
+            self.userSettings.mfJournalPosts = mfJournalPosts
+            self.userSettings.mfJournalDays = mfJournalDays
+            
+            //Lifecycle sheet logic
+            switch mfJournalPosts {
+            case 1:
+                //First time
+                self.showLifecycleSheet.toggle()
+                print("first time!")
+            case let num where mfJournalPosts % 5 == 0:
+                //Every fifth time
+                self.showLifecycleSheet.toggle()
+                print("\(num) times")
+                
+            default:
+                print("Nothing to do \(mfJournalPosts)")
+            }
+            
+            
         }
         
     }

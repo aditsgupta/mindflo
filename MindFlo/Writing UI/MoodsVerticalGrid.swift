@@ -14,6 +14,7 @@ struct MoodsVerticalGrid: View {
     
     var body: some View {
         ScrollView(.vertical, showsIndicators: false){
+
             ForEach(0..<getGridRows()) {rowIndex in
                 HStack {
                     ForEach(0..<self.gridColumns) { columnIndex in
@@ -39,7 +40,22 @@ struct MoodsVerticalGrid: View {
                 .padding(.top, 16)
                 .padding(.horizontal, 4)
             }
+            VStack(alignment: .center) {
+                Rectangle()
+                    .frame(height: 2)
+                    .foregroundColor(ColorManager.bgGrey)
+                
+                MoodLoopingHint().scaleEffect(0.60)
+                
+                Text("Tip: Long press any mood for options")
+                    .font(.caption)
+                    .italic()
+                    .foregroundColor(.gray)
+                    .padding(.top, 24)
+                
+            }.padding(.vertical)
         }
+        
     }
     
     private func getGridRows() -> Int{

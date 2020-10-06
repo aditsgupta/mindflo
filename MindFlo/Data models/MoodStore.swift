@@ -33,6 +33,7 @@ class MoodStore {
         Mood(moodType: 2, moodEmoji: "😖", moodTitles: ["Depressed", "Inferior"] ),
         Mood(moodType: 2, moodEmoji: "🤕", moodTitles: ["Hurt", "Embarrassed", "Disappointed"] ),
         Mood(moodType: 2, moodEmoji: "😶", moodTitles: ["Numb", "Withdrawn", "Empty"] ),
+        Mood(moodType: 2, moodEmoji: "👀", moodTitles: ["Distant","Aloof", "Detached"] ),
         
         //Red
         Mood(moodType: 3, moodEmoji: "😠", moodTitles: ["Angry", "Mad", "Furious"] ),
@@ -51,17 +52,18 @@ class MoodStore {
         Mood(moodType: 4, moodEmoji: "😩", moodTitles: ["Weak", "Worthless", "Insignificant"] ),
         Mood(moodType: 4, moodEmoji: "✋", moodTitles: ["Rejected", "Persecuted", "Excluded"] ),
         Mood(moodType: 4, moodEmoji: "😬", moodTitles: ["Nervous",  "Threatened", "Exposed"] ),
-        Mood(moodType: 4, moodEmoji: "😵", moodTitles: ["Pressured", "Rushed"] ),
+        Mood(moodType: 4, moodEmoji: "😵", moodTitles: ["Pressured", "Rushed", "Horrified"] ),
         Mood(moodType: 4, moodEmoji: "😟", moodTitles: ["Threatened", "Helpless"] ),
         
         //Green
         Mood(moodType: 5, moodEmoji: "🤢", moodTitles: ["Disgusted", "Apalled"] ),
         Mood(moodType: 5, moodEmoji: "🙄", moodTitles: ["Disappointed", "Revolted"] ),
         Mood(moodType: 5, moodEmoji: "🤮", moodTitles: ["Awful", "Nauseated", "Sick"] ),
-        Mood(moodType: 5, moodEmoji: "🤭", moodTitles: ["Repelled", "Hesitant", "Horrified"] ),
+        Mood(moodType: 5, moodEmoji: "🤭", moodTitles: ["Repelled", "Hesitant"] ),
         Mood(moodType: 5, moodEmoji: "🧐", moodTitles: ["Judgemental", "Disapproving"] ),
         Mood(moodType: 5, moodEmoji: "😑", moodTitles: ["Apathetic", "Indifferent"] ),
-        Mood(moodType: 5, moodEmoji: "🥱", moodTitles: ["Bored", "Sleepy"] )
+        Mood(moodType: 5, moodEmoji: "🥱", moodTitles: ["Bored", "Sleepy"] ),
+        Mood(moodType: 5, moodEmoji: "🥴", moodTitles: ["Weird", "Unusual", "Cranky"] )
     ]
     
     

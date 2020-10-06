@@ -357,6 +357,8 @@ struct WriteMoodJournalView: View {
         if recheckinActive {
             addRecheckinNotification(inHours: pickedMood.recheckInHours)
         }
+        //Post notification for Lifecycle event trigger
+        NotificationCenter.default.post(name: NSNotification.Name("saveMFJournal"), object: nil)
         
         //Firebase
         Analytics.logEvent("writeMF_SaveButton", parameters: [

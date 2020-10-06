@@ -9,33 +9,50 @@
 import SwiftUI
 
 struct FTUEView: View {
-    let userSettings = UserSettings()
+    @Binding var userSettings: UserSettings
+    @State var showAddNameSheet = false
+    
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
                 Spacer()
-                Image("FTUE_illustration2")
+                Image("FTUE_illustration\(userSettings.avatarID)")
+                    .resizable().aspectRatio(contentMode: .fit)
+                    .frame(height: 240, alignment: .bottom)
                 Spacer()
             }
+            .padding()
             
-            Text("\(userSettings.name), check in with your mind for a minute.")
+            Text("Hey \(userSettings.name), start your journey here.")
                 .font(.system(size: 32))
                 .fontWeight(.bold)
                 .fixedSize(horizontal: false, vertical: true)
                 .padding(.vertical)
             
             
-            Text("Reflect on an event, person or object in your life and how that made you feel.")
+            Text("Allow yourself a minute to check in with your mind. Reflect on how an event, a person or this day made you feel.")
                 .font(.body)
                 .foregroundColor(.gray)
         }
-        
-        .padding()
+        .padding(24)
+        .sheet(isPresented: $showAddNameSheet, content: {
+            NavigationView{
+                AddNameView(userSettings: $userSettings)
+            }
+        })
+        .onAppear(){
+            if userSettings.name.isEmpty{
+                showAddNameSheet = true
+            }
+            else{
+                showAddNameSheet = false
+            }
+        }
     }
 }
 
 struct FTUEView_Previews: PreviewProvider {
     static var previews: some View {
-        FTUEView()
+        FTUEView(userSettings: .constant(UserSettings()))
     }
 }
