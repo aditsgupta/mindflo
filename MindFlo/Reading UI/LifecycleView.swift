@@ -55,6 +55,7 @@ struct LifecycleView: View {
                     Text("Let's keep you flo'ing. Commit to your a practice with daily check-ins to help you on your journey.")
                         .font(.body)
                         .foregroundColor(.gray)
+                        .fixedSize(horizontal: false, vertical: true)
                     
                     Button(action: {
                         NotificationsHelper().authorizeUserNotification()
@@ -89,6 +90,7 @@ struct LifecycleView: View {
                     Text("Take a moment to soak in this milestone. We have a long journey ahead of us. :)")
                         .font(.body)
                         .foregroundColor(.gray)
+                        .fixedSize(horizontal: false, vertical: true)
                     
                     //
                     Text("Loving Mindflo? A rating on the App Store goes a long way in helping spread the word.")
@@ -96,6 +98,7 @@ struct LifecycleView: View {
                         .foregroundColor(.gray)
                         .italic()
                         .padding(.top)
+                        .fixedSize(horizontal: false, vertical: true)
                     
                     Button(action: {
                         //Update userSettings
@@ -128,9 +131,9 @@ struct LifecycleView: View {
                     Text("Take a moment to soak in this milestone. We have a long journey ahead of us. :)")
                         .font(.body)
                         .foregroundColor(.gray)
+                        .fixedSize(horizontal: false, vertical: true)
                     
                     Button(action: {
-                        
                         presentationMode.wrappedValue.dismiss()
                         
                     }) {

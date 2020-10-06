@@ -188,6 +188,7 @@ struct DetailsCard: View {
                 .font(.system(size:20))
                 .foregroundColor(Color(.black))
                 .multilineTextAlignment(.leading)
+                .fixedSize(horizontal: false, vertical: true)
                 .padding([.top, .leading, .trailing])
             
             
@@ -227,7 +228,7 @@ struct JournalDetailView_Previews: PreviewProvider {
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         
         let sampleMoodJournalEntry = MoodJournalEntry(context: context)
-        sampleMoodJournalEntry.journalText = "This is my loooonng journal entry. You can clearly see I'm pissed at this!Why the hell is this not working!!!"
+        sampleMoodJournalEntry.journalText = "This is my loooonng journal entry. You can clearly see I'm pissed at this!Why the hell is this not working!!!This is my loooonng journal entry. You can clearly see I'm pissed at this!Why the hell is this not working!!!"
         sampleMoodJournalEntry.moodTitle = "Frustrated"
         sampleMoodJournalEntry.moodEmoji = "😡"
         sampleMoodJournalEntry.moodColorHexCode = ColorManager.pastelRed.uiColor() .hexString

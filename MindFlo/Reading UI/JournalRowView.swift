@@ -47,6 +47,7 @@ struct JournalRowView: View {
 									.foregroundColor(Color(.black))
 									.multilineTextAlignment(.leading)
 									.lineLimit(5)
+                                    .fixedSize(horizontal: false, vertical: true)
 								Spacer()
 								
 								mfEntry.journalImage.map { imagedata in

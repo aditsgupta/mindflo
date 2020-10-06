@@ -90,7 +90,7 @@ struct JournalHomeView: View {
                         //end of list spacing for readability
                     }
                 })
-                .sheet(height: SheetHeight.infered, isPresented: self.$showLifecycleSheet, content: {
+                .sheet(isPresented: self.$showLifecycleSheet, content: {
                     LifecycleView()
                 })
             }

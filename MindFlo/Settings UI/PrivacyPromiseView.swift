@@ -24,6 +24,14 @@ struct PrivacyPromiseView: View {
                 mfListAccordionView(item: item)
             }
             
+            Button(action: {
+                
+            }, label: {
+                Text("Read our Privacy Policy →")
+                    .foregroundColor(.gray)
+            })
+            .buttonStyle(PlainButtonStyle())
+            .padding(24)
         }
         .navigationBarTitle("Privacy promise")
     }
@@ -59,6 +67,7 @@ struct mfListAccordionView: View {
                                 .font(.system(.body))
                                 .lineLimit(nil)
                                 .padding(.leading, 64)
+                                .fixedSize(horizontal: false, vertical: true)
                     }
                 }
                 .padding([.trailing, .vertical], 8)
