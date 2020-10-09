@@ -11,9 +11,9 @@ import SwiftUI
 struct MoodLoopingHint: View {
     @State var isTapLoopComplete = false
     @State var isMenuLoopComplete = false
-    private let animation = Animation.easeInOut(duration: 0.5).delay(2)
+    private let animation = Animation.easeInOut(duration: 0.5).delay(1.5)
         .repeatForever(autoreverses: true)
-    private let animationOption = Animation.easeOut(duration: 0.25).delay(2.25)
+    private let animationOption = Animation.easeOut(duration: 0.25).delay(1.75)
         .repeatForever(autoreverses: true)
     private let maxScale: CGFloat = 1.0
     

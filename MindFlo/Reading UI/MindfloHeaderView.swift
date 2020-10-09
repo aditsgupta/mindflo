@@ -31,7 +31,7 @@ struct MindfloHeaderView: View {
             
             Spacer()
             
-            //Image("HomeLogoType").padding(.top, 8)
+            Image("HomeLogoType").padding(.top, 8)
             Spacer()
             
             Button(action: {

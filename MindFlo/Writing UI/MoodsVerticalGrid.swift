@@ -41,17 +41,13 @@ struct MoodsVerticalGrid: View {
                 .padding(.horizontal, 4)
             }
             VStack(alignment: .center) {
-                Rectangle()
-                    .frame(height: 2)
-                    .foregroundColor(ColorManager.bgGrey)
-                
-                MoodLoopingHint().scaleEffect(0.60)
-                
-                Text("Tip: Long press any mood for options")
+                Text("Tip: Long press any mood for more options")
                     .font(.caption)
                     .italic()
                     .foregroundColor(.gray)
-                    .padding(.top, 24)
+                    .offset(x: 0, y: 24)
+                
+                MoodLoopingHint().scaleEffect(0.60)
                 
             }.padding(.vertical)
         }

@@ -70,7 +70,7 @@ struct ChooseMoodView: View {
                         
                         Spacer()
                         Button(action: {
-                            //haptic feedbback
+                            //haptic feedback
                             UIImpactFeedbackGenerator(style: .heavy).impactOccurred()
                             if !self.pickedMood.pmTitle.isEmpty {
                                 

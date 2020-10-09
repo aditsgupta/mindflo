@@ -137,7 +137,7 @@ struct JournalDetailView: View {
         
     }
     func setupShareSheet(){
-        let text = "On \(dateFormatter.string(from: mindFloEntry.journalDate!)) I felt \(mindFloEntry.moodEmoji!) \(mindFloEntry.moodTitle!). Sent via @Mindflo"
+        let text = "On \(mindFloEntry.journalDate!.weekDayShort), \(mindFloEntry.journalDate!.dayMedium) \(mindFloEntry.journalDate!.monthMedium) I felt \(mindFloEntry.moodEmoji!) \(mindFloEntry.moodTitle!). \(mindFloEntry.journalText!). Via Mindflo"
         //let url = URL(string: "https://aditsgupta.com")
         var image = UIImage(named: "AppIcon")!
         if let imgData = mindFloEntry.journalImage{
@@ -181,15 +181,16 @@ struct DetailsCard: View {
                 Spacer()
             }
             .padding(.horizontal)
-            .padding(.top, 24)
+            .padding(.top, 20)
             
             //Body text
             Text("\(mindFloEntry.journalText!)")
-                .font(.system(size:20))
+                .font(.system(size: 20))
                 .foregroundColor(Color(.black))
                 .multilineTextAlignment(.leading)
                 .fixedSize(horizontal: false, vertical: true)
-                .padding([.top, .leading, .trailing])
+                .padding([.horizontal])
+                .padding(.vertical, 8)
             
             
             //Photo
@@ -233,7 +234,7 @@ struct JournalDetailView_Previews: PreviewProvider {
         sampleMoodJournalEntry.moodEmoji = "😡"
         sampleMoodJournalEntry.moodColorHexCode = ColorManager.pastelRed.uiColor() .hexString
         sampleMoodJournalEntry.journalDate = Date()
-        sampleMoodJournalEntry.journalImage = UIImage(named: "testFlower")!.jpegData(compressionQuality: 0.5)
+        sampleMoodJournalEntry.journalImage = UIImage(named: "testingLS")!.jpegData(compressionQuality: 0.5)
         
         return JournalDetailView(mindFloEntry: sampleMoodJournalEntry, isNavigationBarHidden: .constant(false))
     }

@@ -10,6 +10,7 @@ import SwiftUI
 import StoreKit
 
 struct LifecycleView: View {
+    @Environment(\.openURL) var openURL //to open Safari links
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     let userSettings = UserSettings()
     private var ordinalFormatter: NumberFormatter = {
@@ -35,7 +36,7 @@ struct LifecycleView: View {
             }
             HStack {
                 Spacer()
-                Image("FTUE_illustration\(userSettings.avatarID)")
+                Image("Lifecycle_illustration\(userSettings.avatarID)")
                     .resizable().aspectRatio(contentMode: .fit)
                     .frame(height: 240
                            , alignment: .bottom)
@@ -52,7 +53,7 @@ struct LifecycleView: View {
             
             if !userSettings.notificationsAllowed {
                 Group {
-                    Text("Let's keep you flo'ing. Commit to your a practice with daily check-ins to help you on your journey.")
+                    Text("Let's keep you flo'ing. Commit to your practice with daily check-ins. We have a whole journey ahead of us.")
                         .font(.body)
                         .foregroundColor(.gray)
                         .fixedSize(horizontal: false, vertical: true)
@@ -79,8 +80,9 @@ struct LifecycleView: View {
                     }
                     .buttonStyle(PlainButtonStyle())
                     
-                    //
-                    Text("Note: Mindflo uses notifications for check-ins. Tap \"Allow\" on the permissions alert when prompted.")
+                    
+                    
+                    Text("Note: Mindflo uses notifications ONLY for check-ins. \nTap \"Allow\" on the alert when prompted.")
                         .font(.caption)
                         .foregroundColor(.gray)
                         .italic()
@@ -128,7 +130,7 @@ struct LifecycleView: View {
                 
             } else {
                 Group{
-                    Text("Take a moment to soak in this milestone. We have a long journey ahead of us. :)")
+                    Text("Take a moment to soak in this milestone. We have a whole journey ahead of us. :)")
                         .font(.body)
                         .foregroundColor(.gray)
                         .fixedSize(horizontal: false, vertical: true)
@@ -146,6 +148,28 @@ struct LifecycleView: View {
                         .frame(height: 56)
                         .clipShape(RoundedRectangle(cornerRadius: 8))
                         .padding(.vertical)
+                    }
+                    .buttonStyle(PlainButtonStyle())
+                    
+                    Button(action: {
+                        presentationMode.wrappedValue.dismiss()
+                        let urlString = "mailto:aditsgupta@gmail.com?subject=Minflo feedback".addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)
+                        openURL(URL(string: urlString!)!)
+                    }) {
+                        ZStack {
+                            Color.white
+                            HStack {
+                                Image(systemName: "envelope.open.fill")
+                                        .font(.system(size: 18))
+                                    .padding(2)
+                                Text("Send feedback")
+                                    .font(.system(size: 18))
+                                    .fontWeight(.semibold)
+                            }
+                            .opacity(0.8)
+                        }
+                        .frame(height: 56)
+                        .clipShape(RoundedRectangle(cornerRadius: 8))
                     }
                     .buttonStyle(PlainButtonStyle())
                 }

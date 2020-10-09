@@ -40,28 +40,31 @@ struct CircularMoodButton: View {
                     Text("\(mood.moodEmoji)")
                         .font(.system(size: 28))
                 }
+                .contentShape(Circle())
             }
-            .contextMenu{
-                //Forcetouch context menu
-                ForEach(mood.moodTitles, id: \.self){ title in
-                    Button(action: {
-                        // change text and color
-                        self.pickedMood.pmColor = self.mood.moodColor
-                        self.pickedMood.pmTitle = title
-                        self.pickedMood.pmEmoji = self.mood.moodEmoji
-                        self.pickedMood.pmType = self.mood.moodType
-                        self.pickedMood.pmJournalDate = Date()
-                        self.pickedMood.writeJournalWithPickedMood.toggle()
-                        
-                        //Firebase
-                        Analytics.logEvent("writeMF_Library_ChooseMood", parameters: [
-                            "source" : "MoodLibrary_ForceTouch",
-                            "moodtype" : self.pickedMood.pmType as Int
-                        ])
-                    }) {
-                        Text("\(title)")
-                        Image(systemName: "arrow.right.circle")
-                    }
+            .buttonStyle(PlainButtonStyle())
+        }
+        .contentShape(Circle())
+        .contextMenu{
+            //Forcetouch context menu
+            ForEach(mood.moodTitles, id: \.self){ title in
+                Button(action: {
+                    // change text and color
+                    self.pickedMood.pmColor = self.mood.moodColor
+                    self.pickedMood.pmTitle = title
+                    self.pickedMood.pmEmoji = self.mood.moodEmoji
+                    self.pickedMood.pmType = self.mood.moodType
+                    self.pickedMood.pmJournalDate = Date()
+                    self.pickedMood.writeJournalWithPickedMood.toggle()
+                    
+                    //Firebase
+                    Analytics.logEvent("writeMF_Library_ChooseMood", parameters: [
+                        "source" : "MoodLibrary_ForceTouch",
+                        "moodtype" : self.pickedMood.pmType as Int
+                    ])
+                }) {
+                    Text("\(title)")
+                    Image(systemName: "arrow.right.circle")
                 }
             }
         }

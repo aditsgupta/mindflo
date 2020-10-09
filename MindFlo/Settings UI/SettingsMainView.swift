@@ -31,14 +31,13 @@ struct SettingsMainView: View {
                     HStack(alignment: .bottom) {
                         VStack(alignment: .leading){
                             
-                            Text("Data & privacy")
+                            Text("Privacy & data")
                                 .font(.system(size: 24))
                                 .fontWeight(.bold)
-                                .padding(.top, 8)
+                                .padding(.vertical, 8)
                             
-                            Text("We don’t store any private data or track your personal info.")
+                            Text("We don’t store any private data or track your personal information.")
                                 .font(.system(size: 12))
-                                .padding(.top, 8)
                                 .foregroundColor(Color.black.opacity(0.6))
                         }
                         .padding([.top, .leading, .bottom], 16)
@@ -52,12 +51,11 @@ struct SettingsMainView: View {
                 }
                 
                 
-                Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
-                    MFListToggleView(title: "App lock", icon: "faceid", toggleState: $userSettings.faceID)
-                }
+                
+                MFListToggleView(title: "App lock", icon: "faceid", toggleState: $userSettings.faceID)
                 
                 NavigationLink(destination: PrivacyPromiseView()) {
-                    MFListView(title: "Our privacy promise", icon: "lock.shield.fill", divider: false)
+                    MFListView(title: "Mindflo's privacy promise", icon: "lock.shield.fill", divider: false)
                 }
                 
             }
@@ -75,14 +73,13 @@ struct SettingsMainView: View {
                     HStack(alignment: .bottom) {
                         VStack(alignment: .leading){
                             
-                            Text("Daily Check-ins")
+                            Text("Daily check-ins")
                                 .font(.system(size: 24))
                                 .fontWeight(.bold)
-                                .padding(.top, 8)
+                                .padding(.vertical, 8)
                             
                             Text("Gentle reminders to help you commit to logging your mood.")
                                 .font(.system(size: 12))
-                                .padding(.top, 8)
                                 .foregroundColor(Color.black.opacity(0.6))
                         }
                         .padding([.top, .leading, .bottom], 16)
@@ -168,31 +165,32 @@ struct SettingsMainView: View {
             .padding([.top,.leading,.trailing])
             
             VStack {
-                //About
+                //Love the app
+                
                 ZStack(alignment: .bottomLeading){
                     ColorManager.pastelYellow
                     //Color.init("pastelYellow")
                     HStack(alignment: .bottom) {
                         VStack(alignment: .leading){
                             
-                            Text("About")
+                            Text("Love the app?")
                                 .font(.system(size: 24))
                                 .fontWeight(.bold)
                                 .padding(.top, 8)
                             
-                            Text("Crafted with love from India 🇮🇳.")
+                            Text("Your feedback & rating go a long way in improving Mindflo for everyone.")
                                 .font(.system(size: 12))
                                 .padding(.top, 8)
                                 .foregroundColor(Color.black.opacity(0.6))
                         }
                         .padding([.top, .leading, .bottom], 16)
                         Spacer()
-                        Image("aboutSettings")
+                        Image("cupSettings")
                     }
                 }
-                Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
-                    MFListView(title: "Share Mindflo", icon: "square.and.arrow.up.fill")
-                }
+//                Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
+//                    MFListView(title: "Share Mindflo", icon: "square.and.arrow.up.fill")
+//                }
                 
                 Button(action: {
                     let urlString = "mailto:aditsgupta@gmail.com?subject=Minflo feedback".addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)
@@ -202,12 +200,19 @@ struct SettingsMainView: View {
                 }
                 
                 Button(action: {
-                    let urlString = "https://twitter.com/intent/tweet?text=Hey @aditsgupta".addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)
+                    let urlString = "https://twitter.com/@aditsgupta".addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)
                     openURL(URL(string: urlString!)!)
                 }) {
-                    MFListView(title: "Tweet to me", icon: "paperplane.fill")
+                    MFListView(title: "Tweet your thoughts", icon: "at")
                 }
                 
+                Button(action: {
+                    let urlString = "https://forms.gle/5ZtxMAjKupBGRXv76".addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)
+                    openURL(URL(string: urlString!)!)
+                }) {
+                    MFListView(title: "For Mental health workers", icon: "staroflife.fill")
+                }
+
                 Button(action: {
                     //Update usersetting for rate app
                     userSettings.rateMindfloTaps += 1
@@ -229,7 +234,6 @@ struct SettingsMainView: View {
                 })
                  */
                 
-                //NavigationLink("testing", destination: testinng())
             }
             .buttonStyle(PlainButtonStyle())
             .clipShape(RoundedRectangle(cornerRadius: 16))

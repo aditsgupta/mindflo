@@ -94,7 +94,6 @@ struct JournalHomeView: View {
                     LifecycleView()
                 })
             }
-            .navigationBarTitle("")
             .navigationBarHidden(self.isNavigationBarHidden)
             .onAppear(){
                 self.isNavigationBarHidden = true
