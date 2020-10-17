@@ -22,7 +22,7 @@ class PrivacyPromiseStore {
         ]),
         
         PrivacyPromise(title: "Full transparency", bulletPoints: [
-            "We are commited to logging only what we absolutely need to improve this app. To that end, we use Firebase to log crash reports, anonymous  feature usage reports, and button taps.",
+            "We are committed to logging only what we absolutely need to improve this app. To that end, we use Firebase to log crash reports, anonymous  feature usage reports, and button taps.",
             "We NEVER track or save any of your personal journal data, mood, text or images. We think that’s a massive breach of your privacy."
         ]),
         

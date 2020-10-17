@@ -9,6 +9,8 @@
 import SwiftUI
 
 struct PrivacyPromiseView: View {
+    @Environment(\.openURL) var openURL //to open Safari links
+
     var body: some View {
         ScrollView {
             HStack{
@@ -25,6 +27,9 @@ struct PrivacyPromiseView: View {
             }
             
             Button(action: {
+
+                let urlString = "https://aditsgupta.com/MindfloPrivacyPolicy.html".addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)
+                openURL(URL(string: urlString!)!)
                 
             }, label: {
                 Text("Read our Privacy Policy →")
